@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raio-X Regional Louisville 2026</title>
+<meta name="description" content="Origem TCG: o raio-x do Regional de Louisville 2026 de Pokémon TCG, com resumo para todo mundo, metagame, conversão, matchups, curiosidades e o Top 8.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f7f6f2; --surface:#ffffff; --surface-2:#f0efea; --line:#e2e0d8; --line-2:#cfccc2;
+  --ink:#141412; --ink-2:#4d4c47; --ink-3:#77756d;
+  --accent:#8a6300; --accent-soft:#f3e7c4; --accent-ink:#ffffff; --gold:#d4af37;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --muted-mark:#b9b7ae;
+  --div-neg:#e34948; --div-mid:#f0efec; --div-pos:#2a78d6;
+  --good:#0f7a3d; --bad:#b3261e; --mid:#8a6300;
+  --hero-bg:#0d0d0d; --hero-ink:#f5f2e8; --hero-ink-2:#b9b4a3;
+  --shadow:0 1px 2px rgba(20,20,18,.06),0 4px 16px rgba(20,20,18,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0d0d0d; --surface:#1a1a19; --surface-2:#232321; --line:#2e2e2b; --line-2:#3d3d39;
+    --ink:#f3f1ea; --ink-2:#c3c2b7; --ink-3:#8f8d84;
+    --accent:#d4af37; --accent-soft:#2c2412; --accent-ink:#1a1200;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --muted-mark:#55544f;
+    --div-neg:#e66767; --div-mid:#383835; --div-pos:#3987e5;
+    --good:#4cc27e; --bad:#f07b72; --mid:#d4af37;
+    --hero-bg:#070707;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0d0d0d; --surface:#1a1a19; --surface-2:#232321; --line:#2e2e2b; --line-2:#3d3d39;
+  --ink:#f3f1ea; --ink-2:#c3c2b7; --ink-3:#8f8d84;
+  --accent:#d4af37; --accent-soft:#2c2412; --accent-ink:#1a1200;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --muted-mark:#55544f;
+  --div-neg:#e66767; --div-mid:#383835; --div-pos:#3987e5;
+  --good:#4cc27e; --bad:#f07b72; --mid:#d4af37;
+  --hero-bg:#070707;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "IBM Plex Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--accent)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+@media(max-width:600px){.wrap{padding:0 16px}}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--hero-bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid #2a2a27}
+.nav .wrap{display:flex;align-items:center;gap:18px;height:56px}
+.nav .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f5f2e8;flex:none}
+.nav .brand img{width:30px;height:30px;border-radius:50%}
+.nav .brand b{font:800 20px/1 "Big Shoulders Display";letter-spacing:.04em;text-transform:uppercase}
+.nav .brand b span{color:#d4af37}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav ul::-webkit-scrollbar{display:none}
+.nav li a{display:block;padding:6px 10px;border-radius:6px;color:#b9b4a3;text-decoration:none;font-size:13.5px;font-weight:500;white-space:nowrap}
+.nav li a:hover{color:#f5f2e8;background:#1f1f1c}
+.theme-btn{flex:none;border:1px solid #3a3a36;background:transparent;color:#d8d3c2;border-radius:6px;height:32px;width:32px;cursor:pointer;display:grid;place-items:center}
+.theme-btn svg{width:16px;height:16px}
+
+/* hero */
+.hero{background:var(--hero-bg);color:var(--hero-ink);padding:44px 0 56px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 360px at 85% 0%,rgba(212,175,55,.16),transparent 70%),radial-gradient(500px 300px at 0% 100%,rgba(212,175,55,.08),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative}
+.brand-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand-row img{width:64px;height:64px;border-radius:50%}
+.brand-row .bn{font:900 30px/1 "Big Shoulders Display";text-transform:uppercase;letter-spacing:.03em}
+.brand-row .bn span{color:#d4af37}
+.brand-row .bt{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--hero-ink-2);margin-top:4px}
+.brand-sep{width:1px;height:44px;background:#3a3a36}
+.brand-p{display:flex;align-items:center;gap:12px}
+.brand-p img{width:52px;height:52px;border-radius:10px}
+.brand-p .bn{font-size:22px}
+.socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.socials a{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid #3a3a36;border-radius:999px;color:#f5f2e8;text-decoration:none;font-size:14px;font-weight:500;transition:.15s}
+.socials a:hover{border-color:#d4af37;color:#d4af37}
+.socials svg{width:16px;height:16px}
+.eyebrow{margin:34px 0 10px;color:#d4af37;font:600 13px/1.4 "IBM Plex Mono";letter-spacing:.08em;text-transform:uppercase}
+.hero h1{font:900 clamp(40px,7.4vw,84px)/.95 "Big Shoulders Display";text-transform:uppercase;margin:0;letter-spacing:.01em;max-width:15ch}
+.hero h1 em{font-style:normal;color:#d4af37}
+.hero-sub{font-size:clamp(16px,2vw,19px);color:#d8d3c2;max-width:60ch;margin:18px 0 0}
+.hero-sub b{color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#2a2a27;border:1px solid #2a2a27;border-radius:12px;overflow:hidden;margin-top:34px}
+.kpi{background:#121211;padding:18px 18px 16px}
+.kpi .v{font:800 clamp(30px,4.4vw,44px)/1 "Big Shoulders Display";color:#fff}
+.kpi .v small{font-size:.5em;color:#d4af37;margin-left:2px}
+.kpi .l{font-size:13px;color:var(--hero-ink-2);margin-top:6px;line-height:1.35}
+@media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.final{margin-top:18px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;border:1px solid #4a3e14;background:linear-gradient(90deg,rgba(212,175,55,.14),rgba(212,175,55,.03));border-radius:12px;padding:16px 20px}
+.final .p .t{font:600 11px/1 "IBM Plex Mono";letter-spacing:.14em;text-transform:uppercase;color:#d4af37}
+.final .p .n{font:800 26px/1.1 "Big Shoulders Display";text-transform:uppercase;margin-top:6px}
+.final .p .d{color:#c9c4b2;font-size:14px}
+.final .p.r{text-align:right}
+.final .vs{font:900 18px "Big Shoulders Display";color:#77756d}
+.final .p.l .n::before{content:"🏆 ";}
+@media(max-width:600px){.brand-sep{display:none}.final{grid-template-columns:1fr;text-align:left}.final .p.r{text-align:left}.final .vs{display:none}}
+
+/* sections */
+section{padding:64px 0 8px}
+.sec-head{margin-bottom:24px}
+.kicker{font:600 12px/1 "IBM Plex Mono";letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+h2{font:800 clamp(32px,4.6vw,48px)/1 "Big Shoulders Display";text-transform:uppercase;margin:10px 0 10px;letter-spacing:.01em}
+.lede{color:var(--ink-2);max-width:68ch;margin:0;font-size:17px}
+h3{font:700 22px/1.15 "Big Shoulders Display";text-transform:uppercase;letter-spacing:.02em;margin:0 0 8px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.grid3,.grid4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.grid2,.grid3,.grid4{grid-template-columns:1fr}}
+p{margin:0 0 12px}
+.small{font-size:13.5px;color:var(--ink-3)}
+.tag{display:inline-flex;align-items:center;gap:6px;font:600 11px/1 "IBM Plex Mono";letter-spacing:.1em;text-transform:uppercase;padding:5px 8px;border-radius:5px;background:var(--accent-soft);color:var(--accent)}
+
+/* resumo */
+.story{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;align-items:start}
+@media(max-width:860px){.story{grid-template-columns:1fr}}
+.story .big p{font-size:18px;line-height:1.65}
+.story .big p b{color:var(--ink)}
+.steps{display:grid;gap:10px}
+.step{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+.step .no{width:44px;height:44px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font:800 22px "Big Shoulders Display"}
+.step b{display:block;font-weight:600}
+.step span{color:var(--ink-2);font-size:14.5px}
+.glossary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px}
+@media(max-width:900px){.glossary{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.glossary{grid-template-columns:1fr}}
+.gl{border:1px dashed var(--line-2);border-radius:10px;padding:12px 14px}
+.gl b{font:700 17px "Big Shoulders Display";text-transform:uppercase;letter-spacing:.03em;color:var(--accent)}
+.gl p{font-size:14px;color:var(--ink-2);margin:4px 0 0}
+.headlines{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+@media(max-width:900px){.headlines{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.headlines{grid-template-columns:1fr}}
+.hl{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:12px;padding:16px}
+.hl .n{font:800 40px/1 "Big Shoulders Display";color:var(--accent)}
+.hl p{margin:8px 0 0;font-size:14.5px;color:var(--ink-2)}
+.hl p b{color:var(--ink)}
+
+/* curiosidades */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.facts{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;position:relative;overflow:hidden}
+.fact .ix{position:absolute;right:12px;top:4px;font:900 64px/1 "Big Shoulders Display";color:var(--line)}
+.fact .v{font:800 34px/1 "Big Shoulders Display";color:var(--ink);position:relative}
+.fact .v span{color:var(--accent)}
+.fact h4{margin:8px 0 6px;font-size:15.5px;position:relative}
+.fact p{margin:0;font-size:14.5px;color:var(--ink-2);position:relative}
+
+/* charts */
+.chart-card{padding:20px 20px 14px}
+.chart-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.chart-title h3{margin:0}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.legend i.c{border-radius:50%}
+svg text{font-family:"IBM Plex Sans",sans-serif}
+.axis text{fill:var(--ink-3);font-size:12px;font-family:"IBM Plex Mono"}
+.axis line,.grid line{stroke:var(--line)}
+.tip{position:fixed;pointer-events:none;z-index:100;background:var(--ink);color:var(--bg);padding:9px 11px;border-radius:8px;font-size:13px;line-height:1.45;max-width:260px;opacity:0;transition:opacity .1s;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.tip b{display:block;font-size:14px}
+.tip .m{font-family:"IBM Plex Mono";font-variant-numeric:tabular-nums}
+.bars .row{display:grid;grid-template-columns:200px 1fr 110px;gap:12px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.bars .row:last-child{border-bottom:0}
+.bars .nm{font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bars .track{height:18px;position:relative}
+.bars .fill{height:100%;background:var(--s1);border-radius:0 4px 4px 0;min-width:3px}
+.bars .row.other .fill{background:var(--muted-mark)}
+.bars .val{font:500 13.5px "IBM Plex Mono";text-align:right;color:var(--ink-2);white-space:nowrap}
+.bars .val b{color:var(--ink);font-weight:600}
+.bars .row:hover{background:var(--surface-2)}
+@media(max-width:600px){.bars .row{grid-template-columns:1fr 92px;row-gap:4px}.bars .nm{grid-column:1/-1}.bars .track{grid-column:1}}
+.wrchip{display:inline-block;min-width:54px}
+.up{color:var(--good)}.down{color:var(--bad)}
+
+/* table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font:600 11.5px/1.2 "IBM Plex Mono";letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2);position:sticky;top:0}
+td.num,th.num{text-align:right;font-family:"IBM Plex Mono";font-variant-numeric:tabular-nums}
+tbody tr:hover{background:var(--surface-2)}
+tbody tr:last-child td{border-bottom:0}
+.badge{display:inline-flex;align-items:center;gap:5px;font:600 12px "IBM Plex Sans";padding:3px 9px;border-radius:999px;border:1px solid}
+.badge.good{color:var(--good);border-color:color-mix(in srgb,var(--good) 40%,transparent);background:color-mix(in srgb,var(--good) 9%,transparent)}
+.badge.mid{color:var(--ink-2);border-color:var(--line-2)}
+.badge.bad{color:var(--bad);border-color:color-mix(in srgb,var(--bad) 40%,transparent);background:color-mix(in srgb,var(--bad) 8%,transparent)}
+.idxbar{display:inline-block;height:8px;border-radius:0 3px 3px 0;background:var(--s1);vertical-align:middle;margin-left:8px}
+.sortable th{cursor:pointer;user-select:none}
+.sortable th:hover{color:var(--ink)}
+.sortable th.on::after{content:" ▾";color:var(--accent)}
+.sortable th.on.asc::after{content:" ▴"}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.filters input,.filters select{font:inherit;font-size:14.5px;padding:9px 12px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--ink);min-width:0}
+.filters input{flex:1 1 240px}
+.filters select{flex:0 1 260px}
+.filters .count{align-self:center;color:var(--ink-3);font-size:13.5px}
+.rk{font:700 15px "Big Shoulders Display";display:inline-grid;place-items:center;width:30px;height:24px;border-radius:5px;background:var(--surface-2)}
+.rk.t8{background:var(--accent);color:var(--accent-ink)}
+
+/* heatmap */
+.hm{overflow-x:auto}
+.hm table{font-size:13px;width:auto;margin:0 auto}
+.hm th,.hm td{border:0;padding:0}
+.hm th{background:none;position:static}
+.hm th.col{height:132px;vertical-align:bottom;padding:0 0 6px}
+.hm th.col span{display:block;writing-mode:vertical-rl;transform:rotate(180deg);font:500 12px "IBM Plex Sans";letter-spacing:0;text-transform:none;color:var(--ink-2);margin:0 auto;white-space:nowrap}
+.hm th.rowh{font:600 13px "IBM Plex Sans";letter-spacing:0;text-transform:none;color:var(--ink);text-align:right;padding-right:10px}
+.hm td .c{width:52px;height:38px;margin:1px;border-radius:4px;display:grid;place-items:center;font:500 12px "IBM Plex Mono";cursor:default;position:relative}
+.hm td .c.lowss{background-image:repeating-linear-gradient(135deg,transparent 0 5px,color-mix(in srgb,var(--ink) 10%,transparent) 5px 6px)}
+.hm td .c.self{outline:1px dashed var(--line-2);outline-offset:-3px}
+.hm-legend{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:12px;font-size:12.5px;color:var(--ink-3);flex-wrap:wrap}
+.hm-legend .ramp{display:flex;border-radius:4px;overflow:hidden}
+.hm-legend .ramp span{width:30px;height:12px}
+
+/* insights */
+.ins{border-left:3px solid var(--accent);padding:16px 18px;background:var(--surface);border-radius:0 12px 12px 0;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ins .tag{margin-bottom:10px}
+.ins p{color:var(--ink-2);font-size:15px}
+.ins p:last-child{margin:0}
+.ins.hot{border-left-color:var(--s2)}
+.ins.hot .tag{background:color-mix(in srgb,var(--s2) 14%,transparent);color:var(--s2)}
+.perf{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:10px 0 12px;font-size:13.5px}
+.perf dt{color:var(--ink-3)}
+.perf dd{margin:0;font-family:"IBM Plex Mono";font-variant-numeric:tabular-nums}
+
+/* bracket */
+.bracket{display:grid;grid-template-columns:repeat(3,1fr) 0.8fr;gap:14px;align-items:center}
+@media(max-width:860px){.bracket{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.bracket{grid-template-columns:1fr}}
+.round h4{font:600 11.5px "IBM Plex Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+.match{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:10px;overflow:hidden}
+.match .pl{display:grid;grid-template-columns:24px 1fr auto;gap:8px;align-items:center;padding:8px 10px;font-size:14px}
+.match .pl+.pl{border-top:1px solid var(--line)}
+.match .pl .s{font:600 12px "IBM Plex Mono";color:var(--ink-3)}
+.match .pl .nm{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.match .pl .dk{font-size:12.5px;color:var(--ink-3);white-space:nowrap}
+.match .pl.w{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.match .pl.w .nm::after{content:" ✓";color:var(--accent)}
+.match .pl.lo .nm{color:var(--ink-3);font-weight:500}
+.champ{background:var(--hero-bg);color:var(--hero-ink);border-radius:14px;padding:20px;text-align:center;border:1px solid #4a3e14}
+.champ img{width:76px;height:76px;border-radius:50%}
+.champ .t{font:600 11px "IBM Plex Mono";letter-spacing:.16em;color:#d4af37;text-transform:uppercase;margin-top:10px}
+.champ .n{font:900 28px/1.05 "Big Shoulders Display";text-transform:uppercase;margin-top:6px}
+.champ .d{color:#c9c4b2;font-size:14px;margin-top:4px}
+
+/* journey */
+.journey{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 6px}
+.jr{width:44px;text-align:center}
+.jr .b{height:44px;border-radius:8px;display:grid;place-items:center;font:800 18px "Big Shoulders Display";border:1px solid var(--line-2);color:var(--ink-3)}
+.jr .b.W{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.jr .b.L{background:transparent;color:var(--bad);border-color:color-mix(in srgb,var(--bad) 50%,transparent)}
+.jr .b.T{background:var(--surface-2)}
+.jr .r{font:500 10.5px "IBM Plex Mono";color:var(--ink-3);margin-top:4px}
+.jr.cut .b{box-shadow:0 0 0 2px var(--bg),0 0 0 3px var(--accent)}
+.decklist{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.decklist{grid-template-columns:1fr}}
+.decklist h4{font:600 11.5px "IBM Plex Mono";letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px;display:flex;justify-content:space-between}
+.decklist ul{list-style:none;margin:0;padding:0}
+.decklist li{display:grid;grid-template-columns:28px 1fr;padding:5px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.decklist li b{font-family:"IBM Plex Mono";color:var(--accent)}
+
+/* previsao */
+.verdict{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:13px}
+.verdict.ok{color:var(--good)}.verdict.half{color:var(--mid)}.verdict.no{color:var(--bad)}
+.pred td{white-space:normal;vertical-align:top}
+.pred td:first-child{font-weight:600;min-width:170px}
+.pred td:nth-child(2),.pred td:nth-child(3){min-width:220px;color:var(--ink-2)}
+.score{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 14px}
+.score div{font:800 30px/1 "Big Shoulders Display"}
+.score small{display:block;font:500 12.5px "IBM Plex Sans";color:var(--ink-3);margin-top:4px}
+
+/* cta + footer */
+.cta{margin-top:64px;background:var(--hero-bg);color:var(--hero-ink);border-radius:18px;padding:34px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;position:relative;overflow:hidden;border:1px solid #2a2a27}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 240px at 100% 0%,rgba(212,175,55,.2),transparent 70%)}
+.cta>*{position:relative}
+.cta h2{color:#fff;margin:0 0 8px;font-size:clamp(30px,4vw,42px)}
+.cta p{color:#c9c4b2;margin:0;max-width:56ch}
+.cta .socials{margin:0;flex-direction:column}
+@media(max-width:720px){.cta{grid-template-columns:1fr;padding:24px}.cta .socials{flex-direction:row}}
+footer{margin-top:56px;padding:40px 0 48px;border-top:1px solid var(--line);color:var(--ink-2);font-size:14px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:32px}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr}}
+footer h5{font:600 12px "IBM Plex Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 10px}
+footer ul{margin:0;padding-left:18px}
+footer li{margin:4px 0}
+.sign{display:flex;align-items:center;gap:14px;margin-top:32px;flex-wrap:wrap}
+.sign img{width:44px;height:44px;border-radius:50%}
+.sign img.p{border-radius:8px}
+.sign .t1{font:900 22px/1 "Big Shoulders Display";text-transform:uppercase;color:var(--ink)}
+.sign .t1 span{color:var(--accent)}
+.sign .t2{font-size:12px;color:var(--ink-3);letter-spacing:.12em;text-transform:uppercase}
+.sign .sep{width:1px;height:36px;background:var(--line-2)}
+.note{font-size:13.5px;color:var(--ink-3);margin-top:12px}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Seções">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><img src="data:image/webp;base64,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" alt="Origem TCG"><b>Origem <span>TCG</span></b></a>
+    <ul>
+      <li><a href="#resumo">Resumo</a></li>
+      <li><a href="#curiosidades">Curiosidades</a></li>
+      <li><a href="#meta">Metagame</a></li>
+      <li><a href="#conversao">Conversão</a></li>
+      <li><a href="#matchups">Matchups</a></li>
+      <li><a href="#destaques">Destaques</a></li>
+      <li><a href="#top8">Top 8</a></li>
+      <li><a href="#previsao">Recife × Louisville</a></li>
+      <li><a href="#classificacao">Classificação</a></li>
+      <li><a href="#leituras">Leituras</a></li>
+    </ul>
+    <button class="theme-btn" id="themeBtn" aria-label="Alternar tema claro ou escuro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</nav>
+
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div class="brand-row">
+      <img src="data:image/webp;base64,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" alt="Logo Origem TCG">
+      <div><div class="bn">Origem <span>TCG</span></div><div class="bt">Inteligência Competitiva</div></div>
+      <div class="brand-sep"></div>
+      <div class="brand-p"><img src="data:image/webp;base64,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" alt="Logo Prizers TCG"><div><div class="bt" style="margin:0 0 3px">Apoio / Parceria</div><div class="bn">Prizers TCG</div></div></div>
+    </div>
+    <div class="socials">
+      <a href="https://www.instagram.com/origemtcg/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@origemtcg</a>
+      <a href="https://www.instagram.com/prizerstcg/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@prizerstcg</a>
+    </div>
+    <p class="eyebrow">Pokémon TCG · Regional Championship Louisville · 9 a 11 de outubro de 2026 · Masters</p>
+    <h1>Invicto no <em>maior salão</em> do ano</h1>
+    <p class="hero-sub">Quase <b>3 mil jogadores</b> em Louisville, nos Estados Unidos, e o campeão não perdeu <b>nenhuma partida</b> o fim de semana inteiro. O canadense <b>Riley McKay</b> levou a taça com o deck mais jogado do torneio, o Dragapult ex, e provou que às vezes o óbvio funciona. Aqui está tudo o que aconteceu, explicado para quem joga e para quem só torce.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="v">2.927</div><div class="l">jogadores na categoria Masters, quase 3 vezes Recife</div></div>
+      <div class="kpi"><div class="v">0</div><div class="l">derrotas do campeão em 18 rodadas</div></div>
+      <div class="kpi"><div class="v">27<small>%</small></div><div class="l">do campo jogou alguma versão de Dragapult</div></div>
+      <div class="kpi"><div class="v">26<small>%</small></div><div class="l">dos pilotos de Dragapult ex chegaram ao Dia 2, a melhor conversão entre os decks grandes</div></div>
+    </div>
+    <div class="final">
+      <div class="p l"><div class="t">Campeão</div><div class="n">Riley McKay</div><div class="d">🇨🇦 Dragapult ex · 15/0/3</div></div>
+      <div class="vs">VS</div>
+      <div class="p r"><div class="t">Vice</div><div class="n">Austin Charles</div><div class="d">🇺🇸 Dragapult Blaziken · 14/2/2</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- RESUMO -->
+<section id="resumo">
+  <div class="sec-head">
+    <div class="kicker">Pra todo mundo</div>
+    <h2>Louisville em 2 minutos</h2>
+    <p class="lede">Não joga competitivo? Sem problema. Esse resumo é pra você entender o fim de semana, e se curtir, os gráficos lá embaixo contam o resto.</p>
+  </div>
+  <div class="story">
+    <div class="big card">
+      <p>Um Regional é um dos grandes campeonatos oficiais de Pokémon TCG. Cada jogador chega com um <b>deck de 60 cartas</b> montado em casa e joga várias partidas contra adversários com o mesmo desempenho que ele. Quem vai bem no primeiro dia volta no segundo, e os 8 melhores decidem o título no mata mata.</p>
+      <p>Louisville foi gigante: <b>2.927 jogadores</b>, quase o triplo de Recife, uma semana antes. E o favorito de todo mundo continuou sendo o <b>Dragapult ex</b>, o dragão fantasma que espalha dano pelo time inteiro do adversário. Foram 543 pilotos só com a versão principal dele.</p>
+      <p>Em Recife o deck mais jogado acabou virando alvo e perdeu o título para um azarão. Em Louisville foi o contrário. O canadense <b>Riley McKay</b> passou por 18 rodadas <b>sem perder nenhuma</b>, com 15 vitórias e 3 empates, e na final bateu Austin Charles, que jogava outra versão do mesmo dragão.</p>
+      <p style="margin:0">Moral da história? Às vezes o deck mais popular é popular por um bom motivo. E o meta muda muito de uma semana pra outra: o deck sensação de Recife nem apareceu no Top 100 de Louisville.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="no">1</div><div><b>Dia 1: 8 rodadas</b><span>Os 2.927 jogadores se enfrentam em partidas melhor de 3. Vitória vale 3 pontos, empate vale 1.</span></div></div>
+      <div class="step"><div class="no">2</div><div><b>Dia 2: mais 6 rodadas</b><span>Só 548 jogadores (19%) seguiram vivos para o segundo dia.</span></div></div>
+      <div class="step"><div class="no">3</div><div><b>Top 8: mata mata</b><span>Os 8 melhores da tabela jogam quartas, semi e final. Perdeu, tá fora.</span></div></div>
+      <div class="step"><div class="no">🏆</div><div><b>Campeão</b><span>Riley McKay, do Canadá, sem nenhuma derrota no fim de semana inteiro.</span></div></div>
+    </div>
+  </div>
+
+  <div class="headlines">
+    <div class="hl"><div class="n">0 derrotas</div><p>Riley jogou <b>18 rodadas</b> e terminou com 15 vitórias e 3 empates. Campeão invicto num torneio de quase 3 mil pessoas.</p></div>
+    <div class="hl"><div class="n">3 de 8</div><p>O Dragapult ex colocou <b>três jogadores no Top 8</b>, e a final foi um duelo de dragões contra o Dragapult Blaziken.</p></div>
+    <div class="hl"><div class="n">2 → 21</div><p>O deck campeão de Recife saiu de <b>2 para 21 pilotos</b> em uma semana. Nenhum passou do 306º lugar.</p></div>
+    <div class="hl"><div class="n">0 no Top 100</div><p>O <b>N's Zoroark</b>, melhor deck popular em Recife, teve 150 pilotos e nenhum entre os 100 primeiros.</p></div>
+  </div>
+
+  <div class="glossary">
+    <div class="gl"><b>Arquétipo</b><p>A "família" de um deck, definida pelos Pokémon principais. Ex.: Dragapult ex.</p></div>
+    <div class="gl"><b>Meta</b><p>O retrato do que está sendo jogado, quem é popular e quem ganha de quem.</p></div>
+    <div class="gl"><b>Win rate</b><p>Percentual de partidas vencidas. 50% é o ponto de equilíbrio.</p></div>
+    <div class="gl"><b>Conversão</b><p>Quantos pilotos de um deck chegaram ao Dia 2 ou ao topo da tabela.</p></div>
+    <div class="gl"><b>Matchup</b><p>O confronto entre dois decks. Tem deck que é pedra, outro que é tesoura.</p></div>
+  </div>
+</section>
+
+<!-- CURIOSIDADES -->
+<section id="curiosidades">
+  <div class="sec-head">
+    <div class="kicker">Pra contar na mesa</div>
+    <h2>Curiosidades do fim de semana</h2>
+    <p class="lede">Números que a gente achou garimpando os 11.449 confrontos registrados das rodadas suíças.</p>
+  </div>
+  <div class="facts" id="facts"></div>
+</section>
+
+<!-- META -->
+<section id="meta">
+  <div class="sec-head">
+    <div class="kicker">Metagame</div>
+    <h2>O que Louisville jogou</h2>
+    <p class="lede">O Dragapult ex foi quase um quinto do salão sozinho, mais que o dobro do segundo colocado, o Basic Box. Os 10 arquétipos mais jogados somam 64% do campo, e o resto se espalhou por mais de 70 decks diferentes.</p>
+  </div>
+  <div class="card chart-card">
+    <div class="chart-title"><h3>Participação no campo e win rate</h3><div class="legend"><span><i style="background:var(--s1)"></i>% do campo</span><span class="mono">WR = win rate no torneio</span></div></div>
+    <div class="bars" id="bars"></div>
+  </div>
+
+  <div class="card chart-card" style="margin-top:16px">
+    <div class="chart-title"><h3>Popularidade × win rate</h3>
+      <div class="legend"><span><i class="c" style="background:var(--s1)"></i>Dragapult ex</span><span><i class="c" style="background:var(--s2)"></i>Dragapult Blaziken</span><span><i class="c" style="background:var(--s3)"></i>Dhelmise</span><span><i class="c" style="background:var(--muted-mark)"></i>Demais (40+ jogadores)</span></div>
+    </div>
+    <p class="small" style="margin:0 0 6px">Quanto mais à direita, mais jogado. Quanto mais alto, mais ganhou. O tamanho da bolha é o número de pilotos. A linha tracejada marca 50%.</p>
+    <div id="bubble"></div>
+  </div>
+</section>
+
+<!-- CONVERSAO -->
+<section id="conversao">
+  <div class="sec-head">
+    <div class="kicker">Conversão</div>
+    <h2>Quem chegou ao segundo dia</h2>
+    <p class="lede">18,7% do campo jogou o Dia 2. O índice compara a conversão de cada deck com essa média: acima de 1 quer dizer que o deck colocou mais gente no segundo dia do que o tamanho dele sugeria. Só entram arquétipos com 40 ou mais pilotos.</p>
+  </div>
+  <div class="tbl-wrap"><table class="sortable" id="convTbl">
+    <thead><tr><th data-k="name">Deck</th><th class="num" data-k="n">Pilotos</th><th class="num" data-k="share">% campo</th><th class="num" data-k="wr">Win rate</th><th class="num" data-k="d2">Dia 2</th><th class="num" data-k="d2p">Conv.</th><th class="num" data-k="t100">Top 100</th><th data-k="idx">Índice Dia 2</th><th data-k="idx">Leitura</th></tr></thead>
+    <tbody></tbody>
+  </table></div>
+  <p class="note">Sinais a observar, com amostra pequena: <b>Mew Box</b> (18 pilotos, 55,1% de win rate, 6 no Dia 2 e um no Top 8), <b>Grimmsnarl Froslass</b> (19 pilotos, 51,5%, 6 no Dia 2) e <b>Seaking Festival Lead</b> (14 pilotos, 52,7%, 5 no Dia 2). No outro extremo, <b>Mega Greninja</b> (25 pilotos, 38,3%) e <b>Raging Bolt Ogerpon</b> (24 pilotos, 37,6%) colocaram só um jogador cada no segundo dia.</p>
+</section>
+
+<!-- MATCHUPS -->
+<section id="matchups">
+  <div class="sec-head">
+    <div class="kicker">Quem bate em quem</div>
+    <h2>A matriz de matchups</h2>
+    <p class="lede">Cruzamos cada partida das rodadas suíças com o deck dos dois jogadores. Leia pela linha: a célula mostra o win rate do deck da esquerda contra o deck do topo. Empate conta como meia vitória. Células com menos de 10 partidas aparecem hachuradas.</p>
+  </div>
+  <div class="card chart-card">
+    <div class="hm" id="heat"></div>
+    <div class="hm-legend"><span>perde</span><div class="ramp" id="ramp"></div><span>vence</span><span style="margin-left:10px">▨ menos de 10 partidas</span></div>
+  </div>
+</section>
+
+<!-- DESTAQUES -->
+<section id="destaques">
+  <div class="sec-head">
+    <div class="kicker">Alta performance e surpresas</div>
+    <h2>Quem brilhou, quem decepcionou</h2>
+    <p class="lede">Os decks que entregaram mais do que prometiam, e as histórias que ninguém esperava.</p>
+  </div>
+  <div class="grid2">
+    <div class="ins"><span class="tag">⭐ Alta performance</span><h3>Dragapult ex, o rei voltou</h3>
+      <dl class="perf"><dt>Win rate</dt><dd>51,6%</dd><dt>Dia 2</dt><dd>141 de 543 (26%)</dd><dt>Top 100</dt><dd>38 pilotos</dd><dt>Top 8</dt><dd>3, incluindo o campeão</dd></dl>
+      <p>Em Recife ficou travado nos 50%. Em Louisville passou dos 51% mesmo com 433 vitórias e 433 derrotas no espelho, e massacrou os decks que costumavam incomodar: 68% contra Ogerpon Hydrapple e 65% contra Alakazam Dudunsparce.</p></div>
+    <div class="ins"><span class="tag">⭐ Alta performance</span><h3>Dragapult Blaziken, o vice que ninguém respeitou</h3>
+      <dl class="perf"><dt>Win rate</dt><dd>50,7%</dd><dt>Dia 2</dt><dd>28 de 112 (25%)</dd><dt>vs Mega Excadrill</dt><dd>71%</dd></dl>
+      <p>Em Recife foi uma das variantes que "afundaram", com 3 pilotos no Dia 2. Uma semana depois, Austin Charles levou a versão com Blaziken até a final, e o deck converteu quase igual à lista base.</p></div>
+    <div class="ins"><span class="tag">⭐ Alta performance</span><h3>Dhelmise, a volta por cima</h3>
+      <dl class="perf"><dt>Win rate</dt><dd>50,7%</dd><dt>Top 4</dt><dd>Rahul Reddy</dd><dt>vs Alakazam Dusknoir</dt><dd>18 vitórias, 3 derrotas</dd></dl>
+      <p>Em Recife teve 40,8% e só 1 jogador no domingo. Em Louisville, com 114 pilotos, ficou acima dos 50%, venceu o Dragapult 54% das vezes e colocou Rahul Reddy na semifinal. O ponto fraco continua sendo o N's Zoroark (25%).</p></div>
+    <div class="ins"><span class="tag">⭐ Alta performance</span><h3>Slowking, o anti Dragapult de volume</h3>
+      <dl class="perf"><dt>vs Dragapult ex</dt><dd>58,4% em 321 partidas</dd><dt>Dia 2</dt><dd>46 de 205 (22%)</dd><dt>vs Alakazam Dudunsparce</dt><dd>18%</dd></dl>
+      <p>Foi o terceiro deck mais jogado e o que melhor enfrentou o Dragapult entre os grandes. O problema é o Alakazam Dudunsparce, que venceu 69 de 89 confrontos. Quem desviou dele chegou longe, como o finlandês Aarni Karjala, 13º.</p></div>
+    <div class="ins hot"><span class="tag">🤯 Surpresa</span><h3>Mew Box no Top 8 com 18 pilotos</h3>
+      <p>Foi o deck de maior win rate entre os que tinham amostra minimamente relevante: 55,1%. Contra o Dragapult, venceu 23 de 31 partidas. Sawyer Melban levou o deck até as quartas, e ainda segurou o campeão num empate no suíço.</p></div>
+    <div class="ins hot"><span class="tag">🤯 Surpresa</span><h3>Sharpedo Toxtricity no Top 4</h3>
+      <p>Com 49,4% no campo e só 11 pilotos no Dia 2, não estava no radar. Evan Campbell foi até a semifinal, e duas das suas três derrotas foram para o mesmo Riley McKay. O deck vence Dhelmise com folga (81%) e N's Zoroark (71%).</p></div>
+    <div class="ins hot"><span class="tag">📉 Decepção</span><h3>N's Zoroark sumiu do topo</h3>
+      <p>Saiu de Recife como o melhor deck popular. Em Louisville, com 150 pilotos, fez 47,7%, converteu 22% para o Dia 2 e não teve nenhum jogador no Top 100. O melhor terminou em 102º. Ainda vence o Dragapult (55%), mas apanhou de Sharpedo Toxtricity (29%) e Ogerpon Hydrapple (30%).</p></div>
+    <div class="ins hot"><span class="tag">📉 Decepção</span><h3>Mega Excadrill continua no buraco</h3>
+      <p>147 pilotos, 43,6% de win rate e apenas 10% de conversão, uma das piores do torneio. O Top 8 de Recife com Riguel Assis foi exceção de piloto: na média, o deck perde para quase todo o campo.</p></div>
+  </div>
+</section>
+
+<!-- TOP 8 -->
+<section id="top8">
+  <div class="sec-head">
+    <div class="kicker">Top 8</div>
+    <h2>Como foi o mata mata</h2>
+    <p class="lede">Os 8 primeiros após as rodadas suíças, cruzados com os pareamentos do Limitless. Números à esquerda são a posição final.</p>
+  </div>
+  <div class="bracket" id="bracket"></div>
+
+  <div class="card" style="margin-top:20px">
+    <h3>A jornada do campeão</h3>
+    <p class="small" style="margin:0">Rodada a rodada, de Riley McKay. V = vitória, E = empate, B = bye (folga). As três últimas são quartas, semi e final.</p>
+    <div class="journey" id="journey"></div>
+    <p style="margin:12px 0 0;color:var(--ink-2);font-size:15px">Nenhuma derrota. Os três empates vieram contra Lucas Xing, Sawyer Melban e Henry Chao, dois deles também no Top 8. E Riley enfrentou o Evan Campbell duas vezes, na rodada 11 e na semifinal, e venceu as duas.</p>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="chart-title"><h3>A lista campeã</h3><span class="tag">60 cartas</span></div>
+    <p class="small" style="margin:0 0 14px">Dragapult ex de Riley McKay, como registrada no Limitless Labs. Repare nos 4 Crushing Hammer e nas três energias diferentes.</p>
+    <div class="decklist" id="decklist"></div>
+  </div>
+</section>
+
+<!-- RECIFE x LOUISVILLE -->
+<section id="previsao">
+  <div class="sec-head">
+    <div class="kicker">Recife avisou?</div>
+    <h2>Recife × Louisville</h2>
+    <p class="lede">No raio-x de Recife, a gente deixou algumas leituras para os próximos torneios. Louisville veio uma semana depois, com um campo três vezes maior. Prometemos ser transparentes, então aqui está o placar.</p>
+  </div>
+  <div class="score" id="score"></div>
+  <div class="tbl-wrap"><table class="pred" id="predTbl"><thead><tr><th>O que dissemos</th><th>O que aconteceu</th><th>Por quê</th><th>Veredito</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<!-- CLASSIFICACAO -->
+<section id="classificacao">
+  <div class="sec-head">
+    <div class="kicker">Classificação</div>
+    <h2>O Top 100 completo</h2>
+    <p class="lede">Busque um nome ou filtre por deck. Clique no cabeçalho para ordenar. Recorde em vitórias, derrotas e empates, incluindo o Top 8.</p>
+  </div>
+  <div class="filters"><input id="q" type="search" placeholder="Buscar jogador..." aria-label="Buscar jogador"><select id="fdeck" aria-label="Filtrar por deck"><option value="">Todos os decks</option></select><span class="count" id="cnt"></span></div>
+  <div class="tbl-wrap" style="max-height:620px"><table class="sortable" id="stTbl"><thead><tr><th class="num" data-k="0">#</th><th data-k="1">Jogador</th><th data-k="2">País</th><th class="num" data-k="3">V/D/E</th><th data-k="4">Deck</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<!-- LEITURAS -->
+<section id="leituras">
+  <div class="sec-head">
+    <div class="kicker">Pro próximo torneio</div>
+    <h2>Leituras para escolher seu deck</h2>
+  </div>
+  <div class="grid2">
+    <div class="ins"><span class="tag">Aposta</span><h3>Dragapult ex é o deck a bater</h3><p>Campeão invicto, 3 no Top 8, 38 no Top 100 e a melhor conversão entre os grandes. Se você não sabe o que jogar, a lista base do Dragapult é a resposta mais segura hoje. Só prepare o espelho: outro Dragapult foi, de longe, o adversário mais comum dele.</p></div>
+    <div class="ins"><span class="tag">Contra o rei</span><h3>Slowking e Crustle punem o Dragapult</h3><p>Slowking venceu 58% e Crustle 60% contra o Dragapult ex. Num campo cheio de dragão, são as escolhas lógicas. O cuidado é o Alakazam Dudunsparce, que destrói o Slowking, e o Mega Excadrill, que faz o mesmo com o Crustle (19 vitórias em 21 jogos).</p></div>
+    <div class="ins"><span class="tag">Armadilha</span><h3>Não corra atrás do campeão da semana</h3><p>O Ogerpon Arboliva ganhou Recife com 2 pilotos e virou moda: foram 21 em Louisville, nenhum no Top 300. O N's Zoroark saiu de Recife valorizado e afundou. Meta copiado chega atrasado, porque todo mundo já está preparado para ele.</p></div>
+    <div class="ins"><span class="tag">Limite dos dados</span><h3>O que os números não mostram</h3><p>Win rate agregado mistura pilotos experientes e iniciantes, e listas diferentes do mesmo arquétipo. Os empates incluem acordos entre jogadores. Louisville é um campo americano, com hábitos próprios; o Brasil pode seguir outro caminho. Use os dados como mapa, não como resposta.</p></div>
+  </div>
+
+  <div class="cta">
+    <div><h2>Curtiu o raio-x?</h2><p>A Origem TCG faz análises como essa depois de cada grande campeonato, com apoio da Prizers TCG. Siga a gente no Instagram pra receber a próxima, e manda pro amigo que vive perguntando "qual deck eu jogo?".</p></div>
+    <div class="socials">
+      <a href="https://www.instagram.com/origemtcg/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@origemtcg</a>
+      <a href="https://www.instagram.com/prizerstcg/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@prizerstcg</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h5>Metodologia</h5>
+        <p>Dados coletados em 13/10/2026 no Limitless Labs: classificação completa dos 2.927 jogadores (com o deck de cada um), metagame do campo, pareamentos de todas as rodadas e a lista do campeão. Participação no campo e win rate por arquétipo vêm prontos do Limitless.</p>
+        <p>Calculados por nós: conversão e índice de Dia 2 (pilotos no Dia 2 ÷ pilotos no campo, comparado à média de 18,7%), contagem no Top 100, a matriz de matchups (11.449 confrontos das rodadas suíças com os dois decks identificados, empate valendo meia vitória), as curiosidades e a comparação com Recife. Os nomes de arquétipo seguem a classificação automática do Limitless.</p>
+      </div>
+      <div>
+        <h5>Fontes</h5>
+        <ul>
+          <li><a href="https://labs.limitlesstcg.com/0076/standings" target="_blank" rel="noopener">Limitless Labs · Louisville, classificação</a></li>
+          <li><a href="https://labs.limitlesstcg.com/0076/decks" target="_blank" rel="noopener">Limitless Labs · Louisville, metagame</a></li>
+          <li><a href="https://labs.limitlesstcg.com/0076/pairings" target="_blank" rel="noopener">Limitless Labs · Louisville, pareamentos e Top 8</a></li>
+          <li><a href="https://labs.limitlesstcg.com/0076/player/0445/decklist" target="_blank" rel="noopener">Limitless Labs · lista do campeão</a></li>
+          <li><a href="https://limitlesstcg.com/tournaments/581" target="_blank" rel="noopener">Limitless TCG · Regional Louisville</a></li>
+          <li><a href="recife-2026.html">Origem TCG · Raio-X Regional Recife 2026</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sign">
+      <img src="data:image/webp;base64,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" alt="Origem TCG">
+      <div><div class="t1">Origem <span>TCG</span></div><div class="t2">Inteligência Competitiva</div></div>
+      <div class="sep"></div>
+      <img class="p" src="data:image/webp;base64,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" alt="Prizers TCG">
+      <div><div class="t2">Apoio</div><div class="t1" style="font-size:18px">Prizers TCG</div></div>
+    </div>
+  </div>
+</footer>
+
+
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script>
+const DATA = {"decks": [{"s": "dragapult-ex", "name": "Dragapult ex", "n": 543, "wr": 51.64, "share": 18.55, "d2": 141, "t8": 3, "t100": 38, "best": 1, "d2p": 26.0, "idx": 1.39}, {"s": "basic-box-m", "name": "Basic Box", "n": 223, "wr": 50.25, "share": 7.62, "d2": 43, "t8": 0, "t100": 8, "best": 16, "d2p": 19.3, "idx": 1.03}, {"s": "slowking-scr", "name": "Slowking", "n": 205, "wr": 48.89, "share": 7.0, "d2": 46, "t8": 0, "t100": 7, "best": 13, "d2p": 22.4, "idx": 1.2}, {"s": "alakazam-dudunsparce", "name": "Alakazam Dudunsparce", "n": 162, "wr": 45.54, "share": 5.53, "d2": 26, "t8": 0, "t100": 4, "best": 14, "d2p": 16.0, "idx": 0.85}, {"s": "n-zoroark", "name": "N's Zoroark", "n": 150, "wr": 47.72, "share": 5.12, "d2": 33, "t8": 0, "t100": 0, "best": 102, "d2p": 22.0, "idx": 1.18}, {"s": "mega-excadrill-ex", "name": "Mega Excadrill", "n": 147, "wr": 43.59, "share": 5.02, "d2": 15, "t8": 0, "t100": 3, "best": 44, "d2p": 10.2, "idx": 0.54}, {"s": "dhelmise-pbl", "name": "Dhelmise", "n": 114, "wr": 50.73, "share": 3.89, "d2": 22, "t8": 1, "t100": 6, "best": 4, "d2p": 19.3, "idx": 1.03}, {"s": "dragapult-dusknoir", "name": "Dragapult Dusknoir", "n": 113, "wr": 45.07, "share": 3.86, "d2": 17, "t8": 0, "t100": 1, "best": 29, "d2p": 15.0, "idx": 0.8}, {"s": "ogerpon-meganium-hydrapple", "name": "Ogerpon Meganium Hydrapple", "n": 113, "wr": 47.42, "share": 3.86, "d2": 18, "t8": 1, "t100": 5, "best": 7, "d2p": 15.9, "idx": 0.85}, {"s": "dragapult-blaziken", "name": "Dragapult Blaziken", "n": 112, "wr": 50.71, "share": 3.83, "d2": 28, "t8": 1, "t100": 4, "best": 2, "d2p": 25.0, "idx": 1.34}, {"s": "alakazam-dusknoir", "name": "Alakazam Dusknoir", "n": 79, "wr": 46.55, "share": 2.7, "d2": 16, "t8": 0, "t100": 2, "best": 19, "d2p": 20.3, "idx": 1.08}, {"s": "sharpedo-toxtricity", "name": "Sharpedo Toxtricity", "n": 75, "wr": 49.35, "share": 2.56, "d2": 11, "t8": 1, "t100": 2, "best": 3, "d2p": 14.7, "idx": 0.79}, {"s": "lopunny-dudunsparce", "name": "Lopunny Dudunsparce", "n": 74, "wr": 47.73, "share": 2.53, "d2": 13, "t8": 0, "t100": 0, "best": 159, "d2p": 17.6, "idx": 0.94}, {"s": "festival-lead", "name": "Festival Lead", "n": 73, "wr": 50.0, "share": 2.49, "d2": 18, "t8": 0, "t100": 3, "best": 17, "d2p": 24.7, "idx": 1.32}, {"s": "crustle-dri", "name": "Crustle", "n": 69, "wr": 48.8, "share": 2.36, "d2": 16, "t8": 0, "t100": 3, "best": 24, "d2p": 23.2, "idx": 1.24}, {"s": "lopunny-dusknoir", "name": "Lopunny Dusknoir", "n": 67, "wr": 43.6, "share": 2.29, "d2": 8, "t8": 0, "t100": 0, "best": 108, "d2p": 11.9, "idx": 0.64}, {"s": "lucario-hariyama", "name": "Lucario Hariyama", "n": 65, "wr": 47.84, "share": 2.22, "d2": 14, "t8": 0, "t100": 4, "best": 12, "d2p": 21.5, "idx": 1.15}, {"s": "rockets-honchkrow", "name": "Rocket's Honchkrow", "n": 61, "wr": 47.99, "share": 2.08, "d2": 11, "t8": 0, "t100": 3, "best": 49, "d2p": 18.0, "idx": 0.96}, {"s": "cynthia-garchomp-ex", "name": "Cynthia's Garchomp", "n": 43, "wr": 40.9, "share": 1.47, "d2": 4, "t8": 0, "t100": 1, "best": 83, "d2p": 9.3, "idx": 0.5}, {"s": "other", "name": "Other", "n": 28, "wr": 30.87, "share": 0.96, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mega-lucario-ex", "name": "Mega Lucario", "n": 27, "wr": 43.39, "share": 0.92, "d2": 1, "t8": 0, "t100": 1, "best": 95, "d2p": 3.7, "idx": 0.2}, {"s": "rocket-mewtwo-ex", "name": "Rocket's Mewtwo", "n": 27, "wr": 40.33, "share": 0.92, "d2": 2, "t8": 0, "t100": 0, "best": 370, "d2p": 7.4, "idx": 0.4}, {"s": "mega-greninja-ex", "name": "Mega Greninja", "n": 25, "wr": 38.29, "share": 0.85, "d2": 1, "t8": 0, "t100": 0, "best": 453, "d2p": 4.0, "idx": 0.21}, {"s": "raging-bolt-ogerpon", "name": "Raging Bolt Ogerpon", "n": 24, "wr": 37.63, "share": 0.82, "d2": 1, "t8": 0, "t100": 1, "best": 36, "d2p": 4.2, "idx": 0.22}, {"s": "ogerpon-meganium-arboliva", "name": "Ogerpon Meganium Arboliva", "n": 21, "wr": 49.4, "share": 0.72, "d2": 4, "t8": 0, "t100": 0, "best": 306, "d2p": 19.0, "idx": 1.01}, {"s": "grimmsnarl-froslass", "name": "Grimmsnarl Froslass", "n": 19, "wr": 51.5, "share": 0.65, "d2": 6, "t8": 0, "t100": 1, "best": 78, "d2p": 31.6, "idx": 1.69}, {"s": "ceruledge-ex", "name": "Ceruledge", "n": 18, "wr": 37.94, "share": 0.61, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "ethan-typhlosion", "name": "Ethan's Typhlosion", "n": 18, "wr": 38.97, "share": 0.61, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mew-ex-30c", "name": "Mew Box", "n": 18, "wr": 55.14, "share": 0.61, "d2": 6, "t8": 1, "t100": 1, "best": 8, "d2p": 33.3, "idx": 1.78}, {"s": "dragapult-dudunsparce", "name": "Dragapult Dudunsparce", "n": 15, "wr": 31.42, "share": 0.51, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "seaking-pre", "name": "Seaking Festival Lead", "n": 14, "wr": 52.67, "share": 0.48, "d2": 5, "t8": 0, "t100": 0, "best": 109, "d2p": 35.7, "idx": 1.91}, {"s": "mega-chandelure-ex", "name": "Mega Chandelure", "n": 13, "wr": 37.6, "share": 0.44, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "beedrill-ex-cri", "name": "Beedrill", "n": 11, "wr": 42.67, "share": 0.38, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "hops-trevenant", "name": "Hop's Trevenant", "n": 11, "wr": 44.17, "share": 0.38, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mega-starmie-ex", "name": "Mega Starmie", "n": 11, "wr": 46.76, "share": 0.38, "d2": 1, "t8": 0, "t100": 1, "best": 87, "d2p": 9.1, "idx": 0.49}, {"s": "toucannon-pbl", "name": "Toucannon", "n": 11, "wr": 41.87, "share": 0.38, "d2": 1, "t8": 0, "t100": 1, "best": 32, "d2p": 9.1, "idx": 0.49}, {"s": "kangaskhan-bouffalant", "name": "Kangaskhan Bouffalant", "n": 10, "wr": 43.62, "share": 0.34, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "greninja-ex", "name": "Greninja", "n": 9, "wr": 49.46, "share": 0.31, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mega-venusaur-ex", "name": "Mega Venusaur", "n": 8, "wr": 36.73, "share": 0.27, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "cinccino-ex", "name": "Cinccino", "n": 6, "wr": 26.26, "share": 0.2, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "clefairy-ogerpon", "name": "Clefairy Ogerpon", "n": 6, "wr": 47.22, "share": 0.2, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "starmie-froslass", "name": "Starmie Froslass", "n": 6, "wr": 44.12, "share": 0.2, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mega-absol-box", "name": "Mega Absol Box", "n": 5, "wr": 25.93, "share": 0.17, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "manectric-eelektrik", "name": "Manectric Eelektrik", "n": 4, "wr": 36.23, "share": 0.14, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "okidogi-barbaracle", "name": "Okidogi Barbaracle", "n": 4, "wr": 59.65, "share": 0.14, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "toxtricity-box", "name": "Toxtricity Box", "n": 4, "wr": 45.56, "share": 0.14, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "alakazam-meg", "name": "Alakazam", "n": 3, "wr": 24.44, "share": 0.1, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mega-charizard-x-ex", "name": "Mega Charizard X", "n": 3, "wr": 28.07, "share": 0.1, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "metagross-cri", "name": "Metagross", "n": 3, "wr": 43.33, "share": 0.1, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "ogerpon-meganium", "name": "Ogerpon Meganium", "n": 3, "wr": 37.04, "share": 0.1, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "stevens-metagross", "name": "Steven's Metagross", "n": 3, "wr": 30.16, "share": 0.1, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "archaludon-dudunsparce", "name": "Archaludon Dudunsparce", "n": 2, "wr": 35.9, "share": 0.07, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "decidueye-ex", "name": "Decidueye", "n": 2, "wr": 25.64, "share": 0.07, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "doublade-por", "name": "Doublade", "n": 2, "wr": 0.0, "share": 0.07, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "dragapult-froslass", "name": "Dragapult Froslass", "n": 2, "wr": 26.67, "share": 0.07, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "flareon-noctowl", "name": "Flareon Noctowl", "n": 2, "wr": 52.08, "share": 0.07, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "hop-zacian", "name": "Hop's Zacian", "n": 2, "wr": 33.33, "share": 0.07, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mega-dragonite-ex", "name": "Mega Dragonite", "n": 2, "wr": 31.25, "share": 0.07, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mega-froslass-ex", "name": "Mega Froslass", "n": 2, "wr": 25.93, "share": 0.07, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mega-lopunny-ex", "name": "Mega Lopunny", "n": 2, "wr": 16.67, "share": 0.07, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "rocket-spidops", "name": "Rocket's Spidops", "n": 2, "wr": 41.03, "share": 0.07, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "yanmega-ex", "name": "Yanmega", "n": 2, "wr": 25.0, "share": 0.07, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "blaziken-ex-jtg", "name": "Blaziken", "n": 1, "wr": 25.0, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "blaziken-zoroark", "name": "Blaziken Zoroark", "n": 1, "wr": 19.05, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "blissey-ex", "name": "Blissey", "n": 1, "wr": 25.0, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "diancie-dusknoir", "name": "Diancie Dusknoir", "n": 1, "wr": 40.0, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "gengar-ex", "name": "Gengar", "n": 1, "wr": 33.33, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "heatran-metang", "name": "Heatran Metang", "n": 1, "wr": 54.17, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "iron-thorns-ex", "name": "Iron Thorns", "n": 1, "wr": 20.0, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "jellicent-dusknoir", "name": "Jellicent Dusknoir", "n": 1, "wr": 59.52, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "joltik-box", "name": "Joltik Box", "n": 1, "wr": 25.0, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "lillie-clefairy", "name": "Lillie's Clefairy", "n": 1, "wr": 0.0, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mega-abomasnow-ex", "name": "Mega Abomasnow", "n": 1, "wr": 19.05, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mega-camerupt-ex", "name": "Mega Camerupt", "n": 1, "wr": 37.5, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "mega-gengar-ex", "name": "Mega Gengar", "n": 1, "wr": 38.1, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "ogerpon-ex", "name": "Ogerpon", "n": 1, "wr": 22.22, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "palafin-ex", "name": "Palafin", "n": 1, "wr": 38.89, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "starmie-dusknoir", "name": "Starmie Dusknoir", "n": 1, "wr": 50.0, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "tera-box", "name": "Tera Box", "n": 1, "wr": 45.83, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "toxtricity-pfl", "name": "Toxtricity", "n": 1, "wr": 42.86, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "ursaluna-lunatone", "name": "Ursaluna Lunatone", "n": 1, "wr": 33.33, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}, {"s": "wailord-ex-pbl", "name": "Wailord", "n": 1, "wr": 29.17, "share": 0.03, "d2": 0, "t8": 0, "t100": 0, "best": null, "d2p": 0.0, "idx": 0.0}], "top": [[1, "Riley McKay", "CA", "15-0-3", "dragapult-ex"], [2, "Austin Charles", "US", "14-2-2", "dragapult-blaziken"], [3, "Evan Campbell", "US", "14-3-0", "sharpedo-toxtricity"], [4, "Rahul Reddy", "US", "13-2-2", "dhelmise-pbl"], [5, "Henry Chao", "US", "13-2-1", "dragapult-ex"], [6, "Leo Orozco", "US", "12-2-2", "dragapult-ex"], [7, "Jeremy Chestnutt", "US", "12-2-2", "ogerpon-meganium-hydrapple"], [8, "Sawyer Melban", "US", "12-2-2", "mew-ex-30c"], [9, "Dylan Higgins", "US", "11-2-2", "dragapult-ex"], [10, "Jack Kolbert", "US", "11-2-1", "dragapult-ex"], [11, "Zach Elliott", "US", "11-2-1", "dragapult-ex"], [12, "Ryan Matson", "US", "11-2-1", "lucario-hariyama"], [13, "Aarni Karjala", "FI", "11-2-1", "slowking-scr"], [14, "Gabriel Smart", "US", "11-2-1", "alakazam-dudunsparce"], [15, "Haedyn Scott", "US", "11-2-1", "slowking-scr"], [16, "Justin Gilbert", "US", "11-2-1", "basic-box-m"], [17, "Brendan Dixon", "US", "11-2-1", "festival-lead"], [18, "Caleb Rogerson", "US", "11-2-1", "dragapult-ex"], [19, "Calvin Connor", "US", "11-3-0", "alakazam-dusknoir"], [20, "Liam Halliburton", "US", "11-3-0", "dragapult-ex"], [21, "Ethan Hoang", "US", "11-3-0", "dragapult-ex"], [22, "Juan Mora", "US", "11-3-0", "dragapult-blaziken"], [23, "Ben Kim", "US", "10-1-3", "dragapult-ex"], [24, "Ryan Rumble", "US", "10-1-3", "crustle-dri"], [25, "Julian Gort-Barry", "CA", "10-2-2", "dragapult-blaziken"], [26, "Jack Wong", "CA", "10-2-2", "basic-box-m"], [27, "Ryan Tongue", "US", "10-2-2", "dragapult-ex"], [28, "Jon Bieligk", "US", "10-2-2", "dragapult-ex"], [29, "Patrick Liddy", "US", "10-2-2", "dragapult-dusknoir"], [30, "Alex Tran", "US", "10-2-2", "dragapult-ex"], [31, "Nathan Ginsburg", "US", "10-2-2", "alakazam-dudunsparce"], [32, "Daniel Sopko", "US", "10-2-2", "toucannon-pbl"], [33, "Lorenzo Gomez", "US", "9-0-5", "ogerpon-meganium-hydrapple"], [34, "Matt Pennington", "US", "10-2-2", "lucario-hariyama"], [35, "Nate Kirksey", "US", "10-3-1", "dragapult-ex"], [36, "Jared Weiss", "US", "10-3-1", "raging-bolt-ogerpon"], [37, "Thor Cornell", "US", "10-3-1", "festival-lead"], [38, "Matt Chuang", "US", "10-3-1", "dragapult-ex"], [39, "Anthony Ouertani", "US", "10-3-1", "dragapult-ex"], [40, "Dylan Gunn", "US", "10-3-1", "dragapult-ex"], [41, "Eli Mullen", "US", "10-3-1", "dhelmise-pbl"], [42, "Ethan Yi", "US", "10-3-1", "dragapult-ex"], [43, "Mark Foggia", "CA", "10-3-1", "slowking-scr"], [44, "Raymond Liu", "US", "10-3-1", "mega-excadrill-ex"], [45, "Maxwell Johnson", "US", "10-3-1", "sharpedo-toxtricity"], [46, "Kenneth Gilman", "US", "10-3-1", "basic-box-m"], [47, "Justin Templer", "US", "10-3-1", "dhelmise-pbl"], [48, "Nicholas Westine", "US", "10-3-1", "dragapult-ex"], [49, "Justin Gutzwa", "US", "10-3-1", "rockets-honchkrow"], [50, "Dakodah Mrkvicka", "US", "10-3-1", "mega-excadrill-ex"], [51, "Collin Merli-Matthews", "US", "10-3-1", "basic-box-m"], [52, "Zachary Leverett", "US", "10-3-1", "dragapult-ex"], [53, "Adam Bartholomew", "US", "10-3-1", "festival-lead"], [54, "Saumit Kukkadapu", "US", "10-3-1", "dragapult-ex"], [55, "Christopher Zervos", "US", "10-3-1", "dragapult-ex"], [56, "Tiago Alves", "CA", "9-1-4", "dragapult-ex"], [57, "Nick Robinson", "US", "10-3-1", "dhelmise-pbl"], [58, "Evan Aguilar", "US", "10-3-1", "dragapult-ex"], [59, "Dominic Viola", "US", "10-3-1", "dragapult-ex"], [60, "Tristan Pacheco", "CA", "10-3-1", "dragapult-ex"], [61, "Rylan Geykhman", "US", "10-3-1", "ogerpon-meganium-hydrapple"], [62, "Trevor Marcos", "US", "10-3-1", "dragapult-ex"], [63, "Mike Morton", "US", "10-3-1", "dhelmise-pbl"], [64, "Hale Obernolte", "US", "10-3-1", "dragapult-ex"], [65, "Dexter Siberell", "US", "10-3-1", "ogerpon-meganium-hydrapple"], [66, "Brooks McGee", "US", "10-3-1", "dragapult-ex"], [67, "Cody Falls", "US", "10-3-1", "lucario-hariyama"], [68, "Jake Reed", "US", "10-3-1", "crustle-dri"], [69, "Joshua Granholm", "US", "10-3-1", "alakazam-dudunsparce"], [70, "Jake Blandina", "US", "10-3-1", "dragapult-ex"], [71, "Matthew Padget", "US", "10-3-1", "alakazam-dudunsparce"], [72, "Lucas Thiele", "US", "10-3-1", "crustle-dri"], [73, "Grant Manley", "US", "10-3-1", "dragapult-ex"], [74, "Matthew Dennery", "US", "10-3-1", "slowking-scr"], [75, "Kenneth Springett", "US", "9-2-3", "ogerpon-meganium-hydrapple"], [76, "Hunter Gibbon", "US", "10-4-0", "lucario-hariyama"], [77, "Paul Cacioppo", "US", "9-2-3", "basic-box-m"], [78, "Grayson Lang", "US", "10-4-0", "grimmsnarl-froslass"], [79, "Julius Kerkis", "FI", "10-4-0", "dragapult-ex"], [80, "Samuel Martino", "CA", "10-4-0", "basic-box-m"], [81, "Jacob Peltier", "US", "10-4-0", "dhelmise-pbl"], [82, "Anthony Zheng", "US", "9-2-3", "slowking-scr"], [83, "Bryce Harris", "US", "10-4-0", "cynthia-garchomp-ex"], [84, "Mitchell Alvarez De La Rosa", "US", "10-4-0", "slowking-scr"], [85, "Cali White", "CA", "10-4-0", "basic-box-m"], [86, "Hasan Kunukcu", "US", "9-2-3", "dragapult-ex"], [87, "Gordy Brown", "US", "10-4-0", "mega-starmie-ex"], [88, "Dre Alderette", "US", "10-4-0", "alakazam-dusknoir"], [89, "Lucas Xing", "CA", "9-3-2", "dragapult-ex"], [90, "Tanner Townsend", "US", "9-3-2", "basic-box-m"], [91, "Franco Takahashi", "US", "9-3-2", "dragapult-ex"], [92, "Sammy Goldschein", "US", "9-3-2", "dragapult-ex"], [93, "Kian Amini", "US", "9-3-2", "dragapult-ex"], [94, "Corey Stearman", "US", "9-3-2", "slowking-scr"], [95, "Josh Clark", "US", "9-3-2", "mega-lucario-ex"], [96, "Jayden Martin", "US", "9-3-2", "dragapult-blaziken"], [97, "Miles Aranovich Sperber", "US", "9-3-2", "dragapult-ex"], [98, "James Clinton", "US", "9-3-2", "rockets-honchkrow"], [99, "Zackary Patterson", "US", "9-3-2", "rockets-honchkrow"], [100, "Kosuke Yagami", "US", "9-3-2", "mega-excadrill-ex"]], "mkeys": ["dragapult-ex", "basic-box-m", "slowking-scr", "alakazam-dudunsparce", "n-zoroark", "mega-excadrill-ex", "dhelmise-pbl", "dragapult-dusknoir", "ogerpon-meganium-hydrapple", "dragapult-blaziken", "alakazam-dusknoir", "sharpedo-toxtricity"], "M": [[[433, 433, 162], [143, 161, 53], [115, 169, 37], [134, 62, 44], [89, 117, 49], [102, 76, 35], [74, 90, 27], [89, 70, 16], [93, 32, 41], [97, 82, 32], [69, 36, 7], [49, 42, 13]], [[161, 143, 53], [64, 64, 12], [52, 51, 15], [33, 47, 14], [50, 43, 6], [45, 32, 2], [32, 30, 16], [44, 25, 6], [23, 39, 7], [35, 37, 12], [21, 30, 5], [30, 20, 4]], [[169, 115, 37], [51, 52, 15], [70, 70, 8], [12, 69, 8], [27, 41, 12], [46, 28, 8], [20, 43, 11], [36, 16, 6], [13, 43, 14], [30, 27, 6], [10, 33, 5], [26, 28, 1]], [[62, 134, 44], [47, 33, 14], [69, 12, 8], [37, 37, 20], [27, 22, 14], [27, 15, 8], [11, 29, 6], [18, 20, 7], [32, 17, 11], [15, 24, 3], [14, 16, 7], [8, 9, 2]], [[117, 89, 49], [43, 50, 6], [41, 27, 12], [22, 27, 14], [25, 25, 12], [14, 17, 3], [30, 8, 6], [18, 17, 9], [12, 30, 4], [22, 15, 10], [12, 14, 5], [10, 25, 1]], [[76, 102, 35], [32, 45, 2], [28, 46, 8], [15, 27, 8], [17, 14, 3], [16, 16, 6], [22, 18, 13], [23, 10, 3], [15, 23, 14], [13, 34, 3], [8, 11, 4], [11, 10, 4]], [[90, 74, 27], [30, 32, 16], [43, 20, 11], [29, 11, 6], [8, 30, 6], [18, 22, 13], [18, 18, 4], [18, 11, 6], [7, 13, 7], [13, 14, 3], [18, 3, 0], [3, 18, 3]], [[70, 89, 16], [25, 44, 6], [16, 36, 6], [20, 18, 7], [17, 18, 9], [10, 23, 3], [11, 18, 6], [12, 12, 2], [18, 9, 8], [13, 21, 4], [9, 14, 0], [9, 10, 3]], [[32, 93, 41], [39, 23, 7], [43, 13, 14], [17, 32, 11], [30, 12, 4], [23, 15, 14], [13, 7, 7], [9, 18, 8], [12, 12, 8], [9, 18, 6], [5, 11, 6], [17, 5, 5]], [[82, 97, 32], [37, 35, 12], [27, 30, 6], [24, 15, 3], [15, 22, 10], [34, 13, 3], [14, 13, 3], [21, 13, 4], [18, 9, 6], [13, 13, 2], [14, 7, 0], [7, 11, 5]], [[36, 69, 7], [30, 21, 5], [33, 10, 5], [16, 14, 7], [14, 12, 5], [11, 8, 4], [3, 18, 0], [14, 9, 0], [11, 5, 6], [7, 14, 0], [7, 7, 2], [7, 4, 1]], [[42, 49, 13], [20, 30, 4], [28, 26, 1], [9, 8, 2], [25, 10, 1], [10, 11, 4], [18, 3, 3], [10, 9, 3], [5, 17, 5], [11, 7, 5], [4, 7, 1], [10, 10, 0]]]};
+const fmt=(x,d=1)=>x.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const byS=Object.fromEntries(DATA.decks.map(d=>[d.s,d]));
+const nm=s=>byS[s]?byS[s].name:s;
+const tip=document.getElementById('tip');
+function showTip(e,html){tip.innerHTML=html;tip.style.opacity=1;moveTip(e)}
+function moveTip(e){const w=tip.offsetWidth,h=tip.offsetHeight;let x=e.clientX+14,y=e.clientY+14;if(x+w>innerWidth-8)x=e.clientX-w-14;if(y+h>innerHeight-8)y=e.clientY-h-14;tip.style.left=x+'px';tip.style.top=y+'px'}
+function hideTip(){tip.style.opacity=0}
+const cssv=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+/* theme toggle */
+(function(){const b=document.getElementById('themeBtn');let saved=null;try{saved=localStorage.getItem('origem-theme')}catch(e){}
+if(saved)document.documentElement.dataset.theme=saved;
+b.onclick=()=>{const cur=document.documentElement.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');const nx=cur==='dark'?'light':'dark';document.documentElement.dataset.theme=nx;try{localStorage.setItem('origem-theme',nx)}catch(e){};renderAll()}})();
+
+/* curiosidades */
+const FACTS=[
+ ['0','','Derrotas do campeão','Riley McKay passou por 18 rodadas com 15 vitórias e 3 empates. Ninguém conseguiu bater o canadense em três dias de torneio.'],
+ ['9/0/5','','E mesmo assim, 33º','Lorenzo Gomez (Ogerpon Hydrapple) também não perdeu nenhuma partida no suíço, mas os 5 empates o deixaram fora até do Top 32.'],
+ ['13,3','<span>%</span>','Das partidas terminaram empatadas','Mais de uma em cada oito. Menos que Recife (15,7%), mas ainda muita partida decidida pelo relógio.'],
+ ['32','<span>%</span>','Dos canadenses no Dia 2','32 de 99 passaram de dia, contra 18% dos americanos. E o título também foi para o Canadá.'],
+ ['3 de 4','','Finlandeses no Dia 2','Atravessaram o oceano e quase todos passaram. Aarni Karjala ainda terminou em 13º com Slowking.'],
+ ['2 → 21','','A febre do campeão de Recife','O Ogerpon Arboliva multiplicou por 10 em uma semana. Fez 49,4% e o melhor piloto ficou em 306º.'],
+ ['81','','Arquétipos diferentes','Do Wailord ao Mega Charizard X, Louisville teve de tudo. 31 deles apareceram só uma ou duas vezes.'],
+ ['15','','Países no salão','Estados Unidos e Canadá dominaram, mas teve Finlândia, Japão, Austrália, México e até um brasileiro.'],
+ ['11.449','','Partidas analisadas','Quase três vezes o volume de Recife, o que deixa a matriz de matchups bem mais confiável.']
+];
+document.getElementById('facts').innerHTML=FACTS.map((f,i)=>`<div class="fact"><div class="ix">${String(i+1).padStart(2,'0')}</div><div class="v">${f[0]}${f[1]}</div><h4>${f[2]}</h4><p>${f[3]}</p></div>`).join('');
+
+/* barras */
+function renderBars(){
+ const d=[...DATA.decks].filter(x=>x.s!=='other').sort((a,b)=>b.n-a.n);const top=d.slice(0,10);const rest=d.slice(10);
+ const restN=rest.reduce((s,x)=>s+x.n,0)+28+9;
+ const rows=[...top.map(x=>({name:x.name,n:x.n,share:x.share,wr:x.wr})),{name:'Outros ('+(rest.length+1)+' arquétipos)',n:restN,share:restN/2927*100,wr:null,other:true}];
+ const max=Math.max(...rows.map(r=>r.share));
+ document.getElementById('bars').innerHTML=rows.map(r=>`<div class="row${r.other?' other':''}" data-t="${encodeURIComponent(`<b>${r.name}</b><span class=m>${r.n} jogadores · ${fmt(r.share,1)}% do campo</span>${r.wr!=null?`<br><span class=m>win rate ${fmt(r.wr,1)}%</span>`:''}`)}"><div class="nm">${r.name}</div><div class="track"><div class="fill" style="width:${r.share/max*100}%"></div></div><div class="val"><b>${fmt(r.share,1)}%</b> ${r.wr!=null?`<span class="wrchip ${r.wr>=50?'up':'down'}">· ${fmt(r.wr,1)}</span>`:'<span class="wrchip">&nbsp;</span>'}</div></div>`).join('');
+ document.querySelectorAll('#bars .row').forEach(el=>{el.onmousemove=e=>showTip(e,decodeURIComponent(el.dataset.t));el.onmouseleave=hideTip});
+}
+
+/* bolhas */
+function renderBubble(){
+ const host=document.getElementById('bubble');const W=host.clientWidth||900;const H=Math.max(320,Math.min(440,W*0.5));
+ const m={l:46,r:16,t:16,b:40};const pts=DATA.decks.filter(d=>d.n>=40&&d.s!=='other');
+ const xMax=22,yMin=39,yMax=54;const x=v=>m.l+(Math.log10(v)-Math.log10(1.3))/(Math.log10(xMax)-Math.log10(1.3))*(W-m.l-m.r);
+ const y=v=>m.t+(yMax-v)/(yMax-yMin)*(H-m.t-m.b);const r=n=>Math.max(5,Math.sqrt(n)*1.05);
+ const hl={'dragapult-ex':'--s1','dragapult-blaziken':'--s2','dhelmise-pbl':'--s3'};const surf=cssv('--surface');
+ let s=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Gráfico de bolhas: participação no campo versus win rate">`;
+ [1.5,2,3,5,10,20].forEach(v=>{s+=`<g class="grid"><line x1="${x(v)}" x2="${x(v)}" y1="${m.t}" y2="${H-m.b}"/></g><g class="axis"><text x="${x(v)}" y="${H-m.b+18}" text-anchor="middle">${v}%</text></g>`});
+ [40,45,50].forEach(v=>{s+=`<g class="grid"><line x1="${m.l}" x2="${W-m.r}" y1="${y(v)}" y2="${y(v)}"/></g><g class="axis"><text x="${m.l-8}" y="${y(v)+4}" text-anchor="end">${v}%</text></g>`});
+ s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${y(50)}" y2="${y(50)}" stroke="${cssv('--ink-3')}" stroke-dasharray="4 4" stroke-width="1.2"/>`;
+ s+=`<text x="${W-m.r}" y="${H-6}" text-anchor="end" font-size="11.5" fill="${cssv('--ink-3')}">% do campo (escala log)</text>`;
+ const sorted=[...pts].sort((a,b)=>(hl[a.s]?1:0)-(hl[b.s]?1:0)||b.n-a.n);
+ sorted.forEach(d=>{const c=hl[d.s]?cssv(hl[d.s]):cssv('--muted-mark');s+=`<circle class="bb" data-s="${d.s}" cx="${x(d.share)}" cy="${y(d.wr)}" r="${r(d.n)}" fill="${c}" fill-opacity="${hl[d.s]?0.9:0.75}" stroke="${surf}" stroke-width="2"/>`});
+ const labels=['dragapult-ex','dragapult-blaziken','dhelmise-pbl','basic-box-m','slowking-scr','n-zoroark','alakazam-dudunsparce','mega-excadrill-ex','cynthia-garchomp-ex','lopunny-dusknoir','festival-lead'];
+ labels.forEach(k=>{const d=byS[k];const lx=x(d.share),ly=y(d.wr);const rr=r(d.n);let ax='start',dx=rr+5,dy=4;if(k==='dragapult-ex'){ax='end';dx=-rr-6}if(k==='alakazam-dudunsparce'||k==='n-zoroark'){dy=rr+14;dx=0;ax='middle'}if(k==='basic-box-m'||k==='slowking-scr'){dy=-rr-6;dx=0;ax='middle'}if(k==='dragapult-blaziken'){dy=-rr-6;dx=0;ax='end'}if(k==='dhelmise-pbl'){dy=rr+14;dx=0;ax='start'}
+  s+=`<text x="${lx+dx}" y="${ly+dy}" text-anchor="${ax}" font-size="12.5" font-weight="${hl[k]?600:500}" fill="${hl[k]?cssv('--ink'):cssv('--ink-2')}" style="paint-order:stroke;stroke:${surf};stroke-width:3px">${d.name}</text>`});
+ s+='</svg>';host.innerHTML=s;
+ host.querySelectorAll('.bb').forEach(c=>{const d=byS[c.dataset.s];c.onmousemove=e=>showTip(e,`<b>${d.name}</b><span class=m>${d.n} pilotos · ${fmt(d.share,1)}% do campo<br>win rate ${fmt(d.wr,1)}% · Dia 2: ${d.d2}</span>`);c.onmouseleave=hideTip});
+}
+
+/* conversao */
+const convRows=DATA.decks.filter(d=>d.n>=40&&d.s!=='other');
+let convSort={k:'idx',asc:false};
+function renderConv(){
+ const rows=[...convRows].sort((a,b)=>{const va=a[convSort.k],vb=b[convSort.k];return (typeof va==='string'?va.localeCompare(vb):va-vb)*(convSort.asc?1:-1)});
+ const mx=Math.max(...convRows.map(d=>d.idx));
+ document.querySelector('#convTbl tbody').innerHTML=rows.map(d=>{const b=d.idx>=1.2?['good','▲ Acima do esperado']:d.idx>=0.8?['mid','● Na média']:['bad','▼ Abaixo do esperado'];
+  return `<tr><td><b>${d.name}</b></td><td class="num">${d.n}</td><td class="num">${fmt(d.share,1)}%</td><td class="num ${d.wr>=50?'up':'down'}">${fmt(d.wr,1)}%</td><td class="num">${d.d2}</td><td class="num">${fmt(d.d2p,1)}%</td><td class="num">${d.t100}</td><td class="mono">${fmt(d.idx,2)}<span class="idxbar" style="width:${d.idx/mx*90}px"></span></td><td><span class="badge ${b[0]}">${b[1]}</span></td></tr>`}).join('');
+ document.querySelectorAll('#convTbl th').forEach(th=>{th.classList.toggle('on',th.dataset.k===convSort.k&&th.cellIndex!==8);th.classList.toggle('asc',convSort.asc)});
+}
+document.querySelectorAll('#convTbl th').forEach(th=>th.onclick=()=>{const k=th.dataset.k;convSort={k,asc:convSort.k===k?!convSort.asc:(k==='name')};renderConv()});
+
+/* heatmap */
+function lerp(a,b,t){const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const A=p(a),B=p(b);return 'rgb('+A.map((v,i)=>Math.round(v+(B[i]-v)*t)).join(',')+')'}
+function colorFor(w){const neg=cssv('--div-neg'),mid=cssv('--div-mid'),pos=cssv('--div-pos');const t=Math.max(-1,Math.min(1,(w-50)/25));return t<0?lerp(mid,neg,-t):lerp(mid,pos,t)}
+function renderHeat(){
+ const K=DATA.mkeys,M=DATA.M;const short={'ogerpon-meganium-hydrapple':'Ogerpon Hydrapple','sharpedo-toxtricity':'Sharpedo Toxtricity'};
+ let h='<table><thead><tr><th></th>'+K.map(k=>`<th class="col"><span>${short[k]||nm(k)}</span></th>`).join('')+'</tr></thead><tbody>';
+ K.forEach((a,i)=>{h+=`<tr><th class="rowh">${short[a]||nm(a)}</th>`;K.forEach((b,j)=>{const [w,l,t]=M[i][j];const n=w+l+t;const wr=n?(w+t/2)/n*100:null;const bg=wr==null?'transparent':colorFor(wr);const strong=wr!=null&&Math.abs(wr-50)>15;
+   h+=`<td><div class="c${n<10?' lowss':''}${i===j?' self':''}" style="background-color:${bg};color:${strong?'#fff':'var(--ink)'}" data-i="${i}" data-j="${j}">${wr==null?'·':Math.round(wr)}</div></td>`});h+='</tr>'});
+ h+='</tbody></table>';const host=document.getElementById('heat');host.innerHTML=h;
+ host.querySelectorAll('.c').forEach(c=>{const i=+c.dataset.i,j=+c.dataset.j;const [w,l,t]=M[i][j];const n=w+l+t;c.onmousemove=e=>showTip(e,`<b>${nm(K[i])}</b>contra ${nm(K[j])}<br><span class=m>${w} V · ${l} D · ${t} E (${n} partidas)<br>win rate ${n?fmt((w+t/2)/n*100,1):'·'}%</span>`);c.onmouseleave=hideTip});
+ document.getElementById('ramp').innerHTML=[25,32,40,46,50,54,60,68,75].map(v=>`<span style="background:${colorFor(v)}"></span>`).join('');
+}
+
+/* bracket */
+const B={qf:[[5,'Henry Chao','Dragapult ex',2,'Austin Charles','Dragapult Blaziken',2],[6,'Leo Orozco','Dragapult ex',4,'Rahul Reddy','Dhelmise',2],[1,'Riley McKay','Dragapult ex',7,'Jeremy Chestnutt','Ogerpon Meganium Hydrapple',1],[8,'Sawyer Melban','Mew Box',3,'Evan Campbell','Sharpedo Toxtricity',2]],
+ sf:[[2,'Austin Charles','Dragapult Blaziken',4,'Rahul Reddy','Dhelmise',1],[1,'Riley McKay','Dragapult ex',3,'Evan Campbell','Sharpedo Toxtricity',1]],
+ f:[[2,'Austin Charles','Dragapult Blaziken',1,'Riley McKay','Dragapult ex',2]]};
+function mt(m){const [s1,n1,d1,s2,n2,d2,w]=m;const p=(s,n,d,win)=>`<div class="pl ${win?'w':'lo'}"><span class="s">${s}</span><div style="min-width:0"><div class="nm">${n}</div><div class="dk">${d}</div></div></div>`;return `<div class="match">${p(s1,n1,d1,w===1)}${p(s2,n2,d2,w===2)}</div>`}
+document.getElementById('bracket').innerHTML=`<div class="round"><h4>Quartas</h4>${B.qf.map(mt).join('')}</div><div class="round"><h4>Semifinal</h4>${B.sf.map(mt).join('')}</div><div class="round"><h4>Final</h4>${B.f.map(mt).join('')}</div><div class="champ"><img src="data:image/webp;base64,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" alt=""><div class="t">Campeão Regional Louisville</div><div class="n">Riley McKay</div><div class="d">Dragapult ex</div></div>`;
+
+/* jornada */
+const J=['V','V','V','V','V','V','E','V','V','V','V','V','E','E','B','V','V','V'];
+const JO=["Festival Lead (Zach Lesage)",'Dragapult ex','Dragapult ex','Slowking','Slowking','Dragapult Blaziken','Dragapult ex (Lucas Xing)','Dragapult ex','Sharpedo Toxtricity','Dragapult ex','Sharpedo Toxtricity (Evan Campbell)','Dragapult ex','Mew Box (Sawyer Melban)','Dragapult ex (Henry Chao)','folga','Ogerpon Hydrapple (quartas)','Sharpedo Toxtricity (semi)','Dragapult Blaziken (final)'];
+document.getElementById('journey').innerHTML=J.map((r,i)=>`<div class="jr${i>=15?' cut':''}" data-t="${encodeURIComponent(`<b>${i<15?'Rodada '+(i+1):['Quartas','Semifinal','Final'][i-15]}</b>${r==='B'?'Bye, vitória sem jogar':({V:'Vitória',D:'Derrota',E:'Empate'}[r]+' contra '+JO[i])}`)}"><div class="b ${{V:'W',D:'L',E:'T',B:'T'}[r]}">${r}</div><div class="r">${i<15?'R'+(i+1):['QF','SF','F'][i-15]}</div></div>`).join('');
+document.querySelectorAll('.jr').forEach(el=>{el.onmousemove=e=>showTip(e,decodeURIComponent(el.dataset.t));el.onmouseleave=hideTip});
+
+/* decklist */
+const DL={'Pokémon':[[4,'Dreepy'],[4,'Drakloak'],[3,'Dragapult ex'],[2,'Munkidori'],[2,'Budew'],[1,'Dunsparce'],[1,'Dudunsparce'],[1,'Meowth ex'],[1,'Fezandipiti ex']],
+ 'Treinadores':[[4,"Lillie's Determination"],[3,"Boss's Orders"],[2,'Crispin'],[1,'Judge'],[1,"Rosa's Encouragement"],[4,'Crushing Hammer'],[4,'Buddy-Buddy Poffin'],[4,'Poké Pad'],[3,'Night Stretcher'],[3,'Ultra Ball'],[1,'Unfair Stamp'],[2,'Risky Ruins']],
+ 'Energia':[[3,'Darkness Energy'],[3,'Psychic Energy'],[3,'Fire Energy']]};
+document.getElementById('decklist').innerHTML=Object.entries(DL).map(([k,v])=>`<div><h4><span>${k}</span><span>${v.reduce((s,x)=>s+x[0],0)}</span></h4><ul>${v.map(([q,n])=>`<li><b>${q}</b>${n}</li>`).join('')}</ul></div>`).join('');
+
+/* previsao */
+const P=[
+ ['Dragapult ex é o piso: se for jogar, vá de lista base','A lista base fez 51,6%, a melhor conversão entre os grandes e foi campeã invicta.','Saiu do 50% de Recife para cima, e o título veio exatamente com a versão base.','ok'],
+ ["N's Zoroark virou a referência",'47,7% de win rate e nenhum piloto no Top 100.','Ainda vence o Dragapult, mas o campo se ajustou: Sharpedo, Hydrapple e Festival Lead puniram o deck.','no'],
+ ['Festival Lead é o predador do Zoroark','22 vitórias, 5 derrotas e 4 empates contra Zoroark.','A leitura de matchup se repetiu quase igual. O deck fechou com 50% e 25% de conversão.','ok'],
+ ['Fuja das variantes populares do Dragapult','Dragapult Dusknoir fez 45,1%. Dragapult Blaziken fez 50,7% e chegou à final.','Acertamos no Dusknoir, erramos no Blaziken, que deu a volta por cima com Austin Charles.','half'],
+ ['Crustle é o muro anti Dragapult','60,3% contra Dragapult ex, mas 48,8% no geral.','O matchup se confirmou. O problema seguiu o mesmo: Mega Excadrill e Slowking batem no Crustle.','ok'],
+ ['Alakazam Dudunsparce fica abaixo da média','45,5% de win rate e 16% de conversão.','Perdeu de novo para o Dragapult (35%), mesmo destruindo o Slowking.','ok'],
+ ['Lucario Hariyama é armadilha','47,8% de win rate, 21% de conversão e um jogador em 12º.','Ficou acima da média de conversão no campo americano. Aqui a gente errou.','no']
+];
+const VER={ok:['ok','✔ Acertamos'],half:['half','◑ Meio acerto'],no:['no','✘ Erramos']};
+document.querySelector('#predTbl tbody').innerHTML=P.map(p=>`<tr><td>${p[0]}</td><td>${p[1]}</td><td>${p[2]}</td><td><span class="verdict ${VER[p[3]][0]}">${VER[p[3]][1]}</span></td></tr>`).join('');
+const cnt=k=>P.filter(p=>p[3]===k).length;
+document.getElementById('score').innerHTML=`<div class="up">${cnt('ok')}<small>acertos</small></div><div style="color:var(--mid)">${cnt('half')}<small>meio acertos</small></div><div class="down">${cnt('no')}<small>erros</small></div>`;
+
+/* classificacao */
+const FL={US:'🇺🇸',CA:'🇨🇦',FI:'🇫🇮',BR:'🇧🇷',JP:'🇯🇵'};
+const ST=DATA.top.map(r=>[r[0],r[1],r[2],r[3].replace(/-/g,'/'),nm(r[4]),r[3].split('-').map(Number)]);
+const sel=document.getElementById('fdeck');[...new Set(ST.map(r=>r[4]))].sort().forEach(d=>{const o=document.createElement('option');o.value=d;o.textContent=d+' ('+ST.filter(r=>r[4]===d).length+')';sel.appendChild(o)});
+let stSort={k:0,asc:true};
+function renderSt(){const q=document.getElementById('q').value.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');const f=sel.value;
+ let rows=ST.filter(r=>(!f||r[4]===f)&&(!q||r[1].toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').includes(q)));
+ rows.sort((a,b)=>{const k=stSort.k;let va=k===3?a[5][0]*3+a[5][2]:a[k],vb=k===3?b[5][0]*3+b[5][2]:b[k];return (typeof va==='string'?va.localeCompare(vb):va-vb)*(stSort.asc?1:-1)});
+ document.querySelector('#stTbl tbody').innerHTML=rows.map(r=>`<tr><td class="num"><span class="rk${r[0]<=8?' t8':''}">${r[0]}</span></td><td><b>${r[1]}</b></td><td>${FL[r[2]]||''} ${r[2]}</td><td class="num">${r[3]}</td><td>${r[4]}</td></tr>`).join('');
+ document.getElementById('cnt').textContent=rows.length+' de 100';
+ document.querySelectorAll('#stTbl th').forEach(th=>{th.classList.toggle('on',+th.dataset.k===stSort.k);th.classList.toggle('asc',stSort.asc)});}
+document.getElementById('q').oninput=renderSt;sel.onchange=renderSt;
+document.querySelectorAll('#stTbl th').forEach(th=>th.onclick=()=>{const k=+th.dataset.k;stSort={k,asc:stSort.k===k?!stSort.asc:(k===0||k===1||k===2||k===4)};renderSt()});
+
+function renderAll(){renderBars();renderBubble();renderConv();renderHeat();renderSt()}
+renderAll();
+let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(renderBubble,150)});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',renderAll);
+</script>
+</body>
+</html>
