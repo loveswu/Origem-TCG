@@ -100,7 +100,7 @@
     var bar = el('div', { id: 'oz-bar', class: 'oz', role: 'navigation', 'aria-label': 'Site Origem TCG' },
       '<div class="w"><a class="home" href="./#relatorios"><span>←</span>Origem TCG<span class="lbl" style="color:#8f8b7f;font-weight:400;font-size:13px">&nbsp;· todos os relatórios</span></a>' +
       '<a class="sp" href="' + GQ + '" target="_blank" rel="noopener" aria-label="Patrocinador oficial: Galaxy Quest TCG"><small>Patrocínio<br>oficial</small><img src="galaxy-quest.svg" alt="Galaxy Quest TCG" width="37" height="38"></a>' +
-      '<nav><a href="torneios.html">Torneios</a><a class="hot" href="' + WA + '" target="_blank" rel="noopener">Leilões</a>' +
+      '<nav><a href="torneios.html">Torneios</a><a class="hot" href="' + WA + '" target="_blank" rel="noopener">Leilões, trocas &amp; coach</a>' +
       '<a href="' + GQ + '" target="_blank" rel="noopener">Galaxy Quest</a></nav></div>');
     document.body.insertBefore(bar, document.body.firstChild);
     bar.querySelector('.home').addEventListener('click', goHome);
@@ -119,7 +119,7 @@
       '<div class="w"><div class="k">Origem TCG</div><h2>Continue no site</h2>' +
       '<div class="g">' +
       '<a class="c" href="torneios.html"><b>Próximos torneios</b><p id="oz-tc">Todos os Cups e Challenges do Brasil, com filtro por estado e cidade.</p><span class="go">Ver a agenda →</span></a>' +
-      '<a class="c" href="' + WA + '" target="_blank" rel="noopener"><b>Leilões</b><p>Cartas, leilões e oportunidades na nossa comunidade do WhatsApp.</p><span class="go">Entrar na comunidade →</span></a>' +
+      '<a class="c" href="' + WA + '" target="_blank" rel="noopener"><b>Leilões, trocas &amp; coach</b><p>Leilões de cartas, trocas e coach com o time da Origem, tudo na nossa comunidade do WhatsApp.</p><span class="go">Entrar na comunidade →</span></a>' +
       '<div class="c gq"><img src="galaxy-quest.svg" alt="" class="gql"><b>Galaxy Quest TCG</b><p>Nosso patrocinador oficial. Cartas avulsas, boosters, pré-vendas e eventos.</p><span class="go2"><a href="' + GQ + '" target="_blank" rel="noopener">Visitar a loja →</a><a href="' + GQIG + '" target="_blank" rel="noopener">Instagram</a></span></div>' +
       '</div><h3>Outros raio-X</h3><div class="l">' +
       others.map(function (r) {
