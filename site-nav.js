@@ -3,6 +3,7 @@
   if (window.__ozNav) return; window.__ozNav = 1;
   var WA = 'https://chat.whatsapp.com/KGKAxnOhzoTKeKYoR7SDMf';
   var GQ = 'https://www.galaxyquest.com.br/';
+  var GQIG = 'https://www.instagram.com/galaxy.questtcg/';
   var REPORTS = [
     { u: 'nice-2026.html', n: 'Nice', t: 'Regional', d: '17 e 18 out 2026', c: 'Luc Gantner, Basic Box' },
     { u: 'louisville-2026.html', n: 'Louisville', t: 'Regional', d: '9 a 11 out 2026', c: 'Riley McKay, Dragapult ex' },
@@ -22,7 +23,10 @@
     '.oz a{text-decoration:none;color:inherit}' +
     /* barra do topo */
     '#oz-bar{background:#0b0b0a;color:#e9e6dc;border-bottom:1px solid #222;font-size:13px;position:relative;z-index:60}' +
-    '#oz-bar .w{max-width:1120px;margin:0 auto;padding:0 20px;height:42px;display:flex;align-items:center;gap:22px}' +
+    '#oz-bar .w{max-width:1120px;margin:0 auto;padding:0 20px;height:48px;display:flex;align-items:center;gap:22px}' +
+    '#oz-bar .sp{display:flex;align-items:center;gap:9px;padding-left:18px;border-left:1px solid #2e2e2b;flex-shrink:0}' +
+    '#oz-bar .sp small{font:500 9px/1.3 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#8f8b7f}' +
+    '#oz-bar .sp img{height:38px;width:auto;display:block}' +
     '#oz-bar .home{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:.02em;white-space:nowrap;color:#fff}' +
     '#oz-bar .home span{color:#d4af37;font-size:15px;transition:transform .2s}' +
     '#oz-bar .home:hover span{transform:translateX(-3px)}' +
@@ -32,7 +36,7 @@
     '#oz-bar nav a:hover{color:#fff}' +
     '#oz-bar nav a.hot{color:#fff}' +
     '#oz-bar nav a.hot:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#d4af37;margin-right:7px;vertical-align:1px}' +
-    '@media (max-width:640px){#oz-bar .w{gap:16px;padding:0 16px}#oz-bar nav{gap:16px}#oz-bar .lbl{display:none}}' +
+    '@media (max-width:640px){#oz-bar .w{gap:14px;padding:0 16px;height:auto;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}#oz-bar nav{gap:16px;width:100%;margin-left:0;order:3;padding:4px 0}#oz-bar .lbl{display:none}#oz-bar .sp{margin-left:auto;padding-left:12px}#oz-bar .sp img{height:34px}}' +
     /* botão flutuante */
     '#oz-back{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:90;display:flex;align-items:center;background:#151513;color:#f1efe8;border:1px solid #2e2e2b;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.22);font-size:14px;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s,transform .25s}' +
     '#oz-back.on{opacity:1;transform:none;pointer-events:auto}' +
@@ -52,7 +56,9 @@
     '#oz-more .c p{font-size:14px;line-height:1.5;color:var(--oz-ink2);margin:0}' +
     '#oz-more .c .go{margin-top:auto;padding-top:8px;font-size:13px;font-weight:600;color:var(--oz-acc)}' +
     '#oz-more .c.gq{background:#152447;border-color:#152447;color:#e9e6dc}' +
-    '#oz-more .c.gq b{color:#fff}#oz-more .c.gq p{color:#c9cfdd}#oz-more .c.gq .go{color:#f2c94c}' +
+    '#oz-more .c.gq b{color:#fff}#oz-more .c.gq p{color:#c9cfdd}#oz-more .c.gq{position:relative;padding-right:96px}' +
+    '#oz-more .gql{position:absolute;right:18px;top:18px;width:66px;height:auto}' +
+    '#oz-more .go2{margin-top:auto;padding-top:8px;display:flex;gap:18px;font-size:13px;font-weight:600}#oz-more .go2 a{color:#f2c94c}#oz-more .go2 a:hover{color:#fff}' +
     '#oz-more h3{font:500 11px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--oz-ink3);margin:40px 0 0}' +
     '#oz-more .l{border-top:1px solid var(--oz-line);margin-top:12px}' +
     '#oz-more .r{display:grid;grid-template-columns:140px 1fr auto;gap:20px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--oz-line);transition:background .2s}' +
@@ -93,6 +99,7 @@
     /* barra do topo */
     var bar = el('div', { id: 'oz-bar', class: 'oz', role: 'navigation', 'aria-label': 'Site Origem TCG' },
       '<div class="w"><a class="home" href="./#relatorios"><span>←</span>Origem TCG<span class="lbl" style="color:#8f8b7f;font-weight:400;font-size:13px">&nbsp;· todos os relatórios</span></a>' +
+      '<a class="sp" href="' + GQ + '" target="_blank" rel="noopener" aria-label="Patrocinador oficial: Galaxy Quest TCG"><small>Patrocínio<br>oficial</small><img src="galaxy-quest.svg" alt="Galaxy Quest TCG" width="37" height="38"></a>' +
       '<nav><a href="torneios.html">Torneios</a><a class="hot" href="' + WA + '" target="_blank" rel="noopener">Leilões</a>' +
       '<a href="' + GQ + '" target="_blank" rel="noopener">Galaxy Quest</a></nav></div>');
     document.body.insertBefore(bar, document.body.firstChild);
@@ -113,7 +120,7 @@
       '<div class="g">' +
       '<a class="c" href="torneios.html"><b>Próximos torneios</b><p id="oz-tc">Todos os Cups e Challenges do estado de SP, com filtro por cidade.</p><span class="go">Ver a agenda →</span></a>' +
       '<a class="c" href="' + WA + '" target="_blank" rel="noopener"><b>Leilões</b><p>Cartas, leilões e oportunidades na nossa comunidade do WhatsApp.</p><span class="go">Entrar na comunidade →</span></a>' +
-      '<a class="c gq" href="' + GQ + '" target="_blank" rel="noopener"><b>Galaxy Quest TCG</b><p>Nosso patrocinador. Cartas avulsas, boosters, pré-vendas e eventos.</p><span class="go">Visitar a loja →</span></a>' +
+      '<div class="c gq"><img src="galaxy-quest.svg" alt="" class="gql"><b>Galaxy Quest TCG</b><p>Nosso patrocinador oficial. Cartas avulsas, boosters, pré-vendas e eventos.</p><span class="go2"><a href="' + GQ + '" target="_blank" rel="noopener">Visitar a loja →</a><a href="' + GQIG + '" target="_blank" rel="noopener">Instagram</a></span></div>' +
       '</div><h3>Outros raio-X</h3><div class="l">' +
       others.map(function (r) {
         return '<a class="r" href="' + r.u + '"><small>' + r.t + '<br>' + r.d + '</small><div><strong>' + r.n + '</strong><span>' + r.c + '</span></div><em>→</em></a>';
