@@ -1,0 +1,82 @@
+"""Baixa os TCG Cups e Challenges de SP do pokedata.ovh e gera torneios.json."""
+import csv, io, json, sys, urllib.parse, urllib.request
+from datetime import datetime, timedelta, timezone
+
+URL = "https://www.pokedata.ovh/events/tocsv.php"
+BRT = timezone(timedelta(hours=-3))
+FORM = {
+    "past": "", "country": "BR", "city": "", "shop": "", "league": "",
+    "states": json.dumps(["Sao Paulo"]), "postcode": "",
+    "cups": "1", "challenges": "1", "vcups": "", "vchallenges": "", "prereleases": "",
+    "premier": "", "go": "", "gocup": "", "mss": "", "ftcg": "", "fvg": "", "fgo": "",
+    "latitude": "", "longitude": "", "radius": "", "unit": "km",
+}
+
+
+def fetch():
+    req = urllib.request.Request(
+        URL,
+        data=urllib.parse.urlencode(FORM).encode(),
+        headers={
+            "Content-Type": "application/x-www-form-urlencoded",
+            "User-Agent": "Mozilla/5.0 (OrigemTCG weekly update; +https://www.origemtcg.com.br)",
+            "Referer": "https://www.pokedata.ovh/events/",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return r.read().decode("utf-8-sig")
+
+
+def num(x):
+    try:
+        return round(float(x), 5)
+    except (TypeError, ValueError):
+        return None
+
+
+def main(out="torneios.json"):
+    text = fetch()
+    if not text.startswith("type;"):
+        sys.exit("Resposta inesperada do pokedata.ovh: " + text[:200])
+    today = datetime.now(BRT).strftime("%Y-%m-%d")
+    events = []
+    for row in csv.DictReader(io.StringIO(text), delimiter=";"):
+        kind = (row.get("type") or "").lower()
+        if "cup" in kind:
+            t = "Cup"
+        elif "challenge" in kind:
+            t = "Challenge"
+        else:
+            continue
+        if (row.get("country_code") or "").upper() != "BR" or "paulo" not in (row.get("state") or "").lower():
+            continue
+        when = (row.get("when") or row.get("date") or "").strip()
+        if when[:10] < today:
+            continue
+        events.append({
+            "t": t,
+            "n": (row.get("name") or "").strip(),
+            "w": when[:16],
+            "s": " ".join((row.get("shop") or "").split()),
+            "a": " ".join((row.get("street_adress") or "").split()),
+            "c": (row.get("city") or "").strip(),
+            "u": (row.get("pokemon_url") or "").strip(),
+            "la": num(row.get("latitude")),
+            "lo": num(row.get("longitude")),
+        })
+    events.sort(key=lambda e: (e["w"], e["c"], e["s"]))
+    if not events:
+        sys.exit("Nenhum evento encontrado, mantendo o arquivo anterior.")
+    data = {
+        "atualizado": datetime.now(BRT).strftime("%Y-%m-%dT%H:%M"),
+        "fonte": "pokedata.ovh",
+        "eventos": events,
+    }
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, separators=(",", ":"))
+    cups = sum(e["t"] == "Cup" for e in events)
+    print(f"{len(events)} eventos ({cups} Cups, {len(events) - cups} Challenges)")
+
+
+if __name__ == "__main__":
+    main(*sys.argv[1:])
