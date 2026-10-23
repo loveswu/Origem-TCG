@@ -118,7 +118,7 @@
     var more = el('section', { id: 'oz-more', class: 'oz', 'aria-label': 'Continue no site' },
       '<div class="w"><div class="k">Origem TCG</div><h2>Continue no site</h2>' +
       '<div class="g">' +
-      '<a class="c" href="torneios.html"><b>Próximos torneios</b><p id="oz-tc">Todos os Cups e Challenges do estado de SP, com filtro por cidade.</p><span class="go">Ver a agenda →</span></a>' +
+      '<a class="c" href="torneios.html"><b>Próximos torneios</b><p id="oz-tc">Todos os Cups e Challenges do Brasil, com filtro por estado e cidade.</p><span class="go">Ver a agenda →</span></a>' +
       '<a class="c" href="' + WA + '" target="_blank" rel="noopener"><b>Leilões</b><p>Cartas, leilões e oportunidades na nossa comunidade do WhatsApp.</p><span class="go">Entrar na comunidade →</span></a>' +
       '<div class="c gq"><img src="galaxy-quest.svg" alt="" class="gql"><b>Galaxy Quest TCG</b><p>Nosso patrocinador oficial. Cartas avulsas, boosters, pré-vendas e eventos.</p><span class="go2"><a href="' + GQ + '" target="_blank" rel="noopener">Visitar a loja →</a><a href="' + GQIG + '" target="_blank" rel="noopener">Instagram</a></span></div>' +
       '</div><h3>Outros raio-X</h3><div class="l">' +
@@ -142,8 +142,8 @@
     fetch('torneios.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
       if (!d || !d.eventos) return;
       var t0 = new Date(); t0.setHours(0, 0, 0, 0); var t7 = new Date(t0.getTime() + 7 * 864e5);
-      var n = d.eventos.filter(function (e) { var p = e.w.slice(0, 10).split('-'); var x = new Date(+p[0], p[1] - 1, +p[2]); return x >= t0 && x < t7; }).length;
-      if (n) document.getElementById('oz-tc').textContent = n + ' Cups e Challenges nos próximos 7 dias no estado de SP. Veja onde jogar.';
+      var n = d.eventos.filter(function (e) { if ((e.e || 'SP') !== 'SP') return false; var p = e.w.slice(0, 10).split('-'); var x = new Date(+p[0], p[1] - 1, +p[2]); return x >= t0 && x < t7; }).length;
+      if (n) document.getElementById('oz-tc').textContent = n + ' Cups e Challenges nos próximos 7 dias só em SP, e a agenda do Brasil inteiro com filtro por estado.';
     }).catch(function () {});
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
