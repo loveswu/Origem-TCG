@@ -2,7 +2,7 @@ name: Atualizar torneios
 
 on:
   schedule:
-    - cron: "17 10 * * 1"   # toda segunda, 07h17 de Brasília
+    - cron: "17 0,10,20 * * *"   # 3x por dia: 07h17, 17h17 e 21h17 de Brasília
   workflow_dispatch:
 
 permissions:
