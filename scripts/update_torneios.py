@@ -27,6 +27,27 @@ def fetch():
         return r.read().decode("utf-8-sig")
 
 
+WORDS = {
+    "Sao": "São", "Andre": "André", "Jundiai": "Jundiaí", "Ribeirao": "Ribeirão",
+    "Taubate": "Taubaté", "Guaruja": "Guarujá", "Maua": "Mauá", "Sumare": "Sumaré",
+    "Jacarei": "Jacareí", "Marilia": "Marília", "Aracatuba": "Araçatuba", "Jose": "José",
+    "Joao": "João", "Braganca": "Bragança", "Paulinia": "Paulínia", "Hortolandia": "Hortolândia",
+    "Sertaozinho": "Sertãozinho", "Carapicuiba": "Carapicuíba", "Taboao": "Taboão",
+    "Peruibe": "Peruíbe", "Sebastiao": "Sebastião", "Guaratingueta": "Guaratinguetá",
+    "Avare": "Avaré", "Tatui": "Tatuí", "Poa": "Poá", "Espirito": "Espírito",
+    "Barbara": "Bárbara", "Guacu": "Guaçu", "Mirim": "Mirim", "Itarare": "Itararé",
+    "Ubatuba": "Ubatuba", "Itapevi": "Itapevi", "Votorantim": "Votorantim", "Cubatao": "Cubatão",
+    "Valinhos": "Valinhos", "Itupeva": "Itupeva", "Louveira": "Louveira", "Caieiras": "Caieiras",
+    "Ferraz": "Ferraz", "Vasconcelos": "Vasconcelos", "Aruja": "Arujá", "Jau": "Jaú",
+    "Ourinhos": "Ourinhos", "Andradina": "Andradina", "Itatiba": "Itatiba", "Vinhedo": "Vinhedo",
+    "Sorocaba": "Sorocaba", "Mococa": "Mococa", "Leme": "Leme", "Limeira": "Limeira",
+}
+
+
+def city(name):
+    return " ".join(WORDS.get(w, w) for w in " ".join(name.split()).split(" "))
+
+
 def num(x):
     try:
         return round(float(x), 5)
@@ -59,7 +80,7 @@ def main(out="torneios.json"):
             "w": when[:16],
             "s": " ".join((row.get("shop") or "").split()),
             "a": " ".join((row.get("street_adress") or "").split()),
-            "c": (row.get("city") or "").strip(),
+            "c": city(row.get("city") or ""),
             "u": (row.get("pokemon_url") or "").strip(),
             "la": num(row.get("latitude")),
             "lo": num(row.get("longitude")),
