@@ -5,6 +5,7 @@
   var GQ = 'https://www.galaxyquest.com.br/';
   var GQIG = 'https://www.instagram.com/galaxy.questtcg/';
   var REPORTS = [
+    { u: 'laic-2026.html', n: 'LAIC 2026', t: 'Prévia', d: '20 a 22 nov 2026', c: 'Projeção do meta com Reinado Delta' },
     { u: 'nice-2026.html', n: 'Nice', t: 'Regional', d: '17 e 18 out 2026', c: 'Luc Gantner, Basic Box' },
     { u: 'louisville-2026.html', n: 'Louisville', t: 'Regional', d: '9 a 11 out 2026', c: 'Riley McKay, Dragapult ex' },
     { u: 'recife-2026.html', n: 'Recife', t: 'Regional', d: '3 e 4 out 2026', c: 'Victor Carreira, Ogerpon Meganium Arboliva' },

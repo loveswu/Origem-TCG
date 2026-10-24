@@ -66,6 +66,8 @@ section{padding:88px 0;border-top:1px solid var(--line)}
 .filters button{background:none;border:0;font:inherit;color:var(--ink-3);cursor:pointer;padding:4px 0;border-bottom:1px solid transparent;transition:color .2s}
 .filters button:hover{color:var(--ink)}
 .filters button[aria-pressed="true"]{color:var(--ink);border-color:var(--ink)}
+.filters button{white-space:nowrap}
+@media(max-width:480px){.filters{gap:14px;font-size:13.5px;overflow-x:auto;scrollbar-width:none;max-width:100%}}
 .list{border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:150px 1fr 1fr 32px;gap:28px;align-items:center;padding:28px 12px;border-bottom:1px solid var(--line);transition:background .2s,padding .25s}
 .row:hover{background:var(--hover);padding-left:20px}
@@ -162,7 +164,7 @@ footer a:hover{color:var(--ink)}
 <h1 class="disp">O meta,<br><em>explicado.</em></h1>
 <p>A cada grande campeonato a gente abre os dados, cruza milhares de partidas e conta o que realmente aconteceu. Feito para quem joga e para quem só torce.</p>
 <div class="stats">
-<div><b>7</b><span>relatórios</span></div>
+<div><b>8</b><span>relatórios</span></div>
 <div><b>13 mil+</b><span>jogadores analisados</span></div>
 <div><b>6</b><span>países sede</span></div>
 </div>
@@ -175,6 +177,7 @@ footer a:hover{color:var(--ink)}
 <button data-f="all" aria-pressed="true">Todos</button>
 <button data-f="regional" aria-pressed="false">Regionais</button>
 <button data-f="major" aria-pressed="false">Mundial e CL</button>
+<button data-f="meta" aria-pressed="false">Prévias e meta</button>
 </div>
 </div>
 <div class="list" id="list"></div>
@@ -217,7 +220,8 @@ footer a:hover{color:var(--ink)}
 
 <script>
 const EV=[
-{f:"regional",u:"nice-2026.html",t:"Regional",n:"Nice",dt:"17 e 18 out",nw:1,hl:"Um suíço venceu o suíço",ch:"Luc Gantner 🇨🇭",dk:"Basic Box"},
+{f:"meta",u:"laic-2026.html",t:"Prévia LAIC",n:"LAIC 2026",dt:"20 a 22 nov",nw:1,hl:"O dragão, o canguru e o falcão",ch:"Projeção do meta",dk:"Dragapult, Basic Box e Reinado Delta"},
+{f:"regional",u:"nice-2026.html",t:"Regional",n:"Nice",dt:"17 e 18 out",hl:"Um suíço venceu o suíço",ch:"Luc Gantner 🇨🇭",dk:"Basic Box"},
 {f:"regional",u:"louisville-2026.html",t:"Regional",n:"Louisville",dt:"9 a 11 out",hl:"Invicto no maior salão do ano",ch:"Riley McKay 🇨🇦",dk:"Dragapult ex"},
 {f:"regional",u:"recife-2026.html",t:"Regional",n:"Recife",dt:"3 e 4 out",hl:"O azarão que ninguém viu chegar",ch:"Victor Carreira 🇧🇷",dk:"Ogerpon Meganium Arboliva"},
 {f:"regional",u:"frankfurt-brisbane.html",t:"Regionais",n:"Frankfurt × Brisbane",dt:"26 e 27 set",hl:"Dois continentes, o mesmo meta",ch:"Tomasz Chałupka 🇵🇱 e Edmund Khoo",dk:"Alakazam Dusknoir, Dragapult ex"},
