@@ -6,6 +6,7 @@
   var GQIG = 'https://www.instagram.com/galaxy.questtcg/';
   var REPORTS = [
     { u: 'laic-2026.html', n: 'LAIC 2026', t: 'Prévia', d: '20 a 22 nov 2026', c: 'Projeção do meta com Reinado Delta' },
+    { u: 'gdansk-2026.html', n: 'Gdańsk', t: 'Regional', d: '31 out e 1 nov 2026', c: 'Aarni Karjala, Slowking' },
     { u: 'puebla-2026.html', n: 'Puebla', t: 'Regional', d: '24 e 25 out 2026', c: 'Andrew Hedrick, Dragapult ex' },
     { u: 'nice-2026.html', n: 'Nice', t: 'Regional', d: '17 e 18 out 2026', c: 'Luc Gantner, Basic Box' },
     { u: 'louisville-2026.html', n: 'Louisville', t: 'Regional', d: '9 a 11 out 2026', c: 'Riley McKay, Dragapult ex' },
