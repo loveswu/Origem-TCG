@@ -103,7 +103,7 @@
     var bar = el('div', { id: 'oz-bar', class: 'oz', role: 'navigation', 'aria-label': 'Site Origem TCG' },
       '<div class="w"><a class="home" href="./#relatorios"><span>←</span>Origem TCG<span class="lbl" style="color:#8f8b7f;font-weight:400;font-size:13px">&nbsp;· todos os relatórios</span></a>' +
       '<a class="sp" href="' + GQ + '" target="_blank" rel="noopener" aria-label="Patrocinador oficial: Galaxy Quest TCG"><small>Patrocínio<br>oficial</small><img src="galaxy-quest.svg" alt="Galaxy Quest TCG" width="37" height="38"></a>' +
-      '<nav><a href="torneios.html">Torneios</a><a class="hot" href="' + WA + '" target="_blank" rel="noopener">Leilões, trocas &amp; coach</a>' +
+      '<nav><a href="laboratorio.html">Laboratório</a><a href="torneios.html">Torneios</a><a class="hot" href="' + WA + '" target="_blank" rel="noopener">Leilões, trocas &amp; coach</a>' +
       '<a href="' + GQ + '" target="_blank" rel="noopener">Galaxy Quest</a></nav></div>');
     document.body.insertBefore(bar, document.body.firstChild);
     bar.querySelector('.home').addEventListener('click', goHome);
