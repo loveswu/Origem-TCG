@@ -58,6 +58,13 @@ nav .wrap{display:flex;align-items:center;gap:24px;height:68px}
 .stats b{display:block;font-family:"Big Shoulders Display";font-weight:700;font-size:40px;line-height:1}
 .stats span{font-size:13px;color:var(--ink-3)}
 
+.hero-cta{display:flex;align-items:center;gap:28px;margin-top:34px;flex-wrap:wrap}
+.hero-cta .go{font-size:14px;font-weight:500;border-bottom:1px solid var(--ink);padding-bottom:2px}
+.hero-cta .go:hover{color:var(--accent);border-color:var(--accent)}
+.hero-cta .nw{font:600 10px "IBM Plex Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 6px;margin-left:4px;vertical-align:2px}
+.more{display:block;margin:28px auto 0;background:none;border:1px solid var(--line-2,var(--line));color:var(--ink);font:500 14px inherit;font-family:inherit;padding:11px 22px;border-radius:999px;cursor:pointer;transition:border-color .2s,color .2s}
+.more:hover{border-color:var(--accent);color:var(--accent)}
+.tabs .sm{display:none}
 /* reports */
 section{padding:88px 0;border-top:1px solid var(--line)}
 .sh{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:36px}
@@ -133,6 +140,7 @@ footer a:hover{color:var(--ink)}
  nav .wrap{flex-wrap:wrap;height:auto;padding-top:14px;gap:0}
  .tabs{width:100%;margin:10px 0 0;padding-bottom:12px;gap:22px;overflow-x:auto;scrollbar-width:none}
  .tabs::-webkit-scrollbar{display:none}
+ .tabs{gap:20px}.tabs .dx{display:none}.tabs .lg{display:none}.tabs .sm{display:inline}
  .hero{padding:72px 0 64px}
  .stats{margin-top:44px}.stats div+div{padding-left:16px}.stats b{font-size:32px}
  section{padding:64px 0}
@@ -153,10 +161,10 @@ footer a:hover{color:var(--ink)}
 <a href="#relatorios">Relatórios</a>
 <a href="laboratorio.html">Laboratório</a>
 <a href="torneios.html">Torneios</a>
-<a class="hot" href="https://chat.whatsapp.com/KGKAxnOhzoTKeKYoR7SDMf" target="_blank" rel="noopener">Leilões, trocas &amp; coach</a>
-<a href="https://www.galaxyquest.com.br/" target="_blank" rel="noopener">Galaxy Quest</a>
-<a href="#sobre">Sobre</a>
-<a href="https://www.instagram.com/origemtcg/" target="_blank" rel="noopener">Instagram</a>
+<a class="hot" href="https://chat.whatsapp.com/KGKAxnOhzoTKeKYoR7SDMf" target="_blank" rel="noopener"><span class="lg">Leilões, trocas &amp; coach</span><span class="sm">Leilões</span></a>
+<a class="dx" href="https://www.galaxyquest.com.br/" target="_blank" rel="noopener">Galaxy Quest</a>
+<a class="dx" href="#sobre">Sobre</a>
+<a class="dx" href="https://www.instagram.com/origemtcg/" target="_blank" rel="noopener">Instagram</a>
 </div>
 </div></nav>
 
@@ -164,6 +172,7 @@ footer a:hover{color:var(--ink)}
 <div class="mono">Inteligência competitiva · Pokémon TCG</div>
 <h1 class="disp">O meta,<br><em>explicado.</em></h1>
 <p>A cada grande campeonato a gente abre os dados, cruza milhares de partidas e conta o que realmente aconteceu. Feito para quem joga e para quem só torce.</p>
+<div class="hero-cta"><a class="btn" href="#relatorios">Ver relatórios</a><a class="go" href="laboratorio.html">Testar meu deck <span class="nw">novo</span></a></div>
 <div class="stats">
 <div><b>10</b><span>relatórios</span></div>
 <div><b>17 mil+</b><span>jogadores analisados</span></div>
@@ -182,6 +191,7 @@ footer a:hover{color:var(--ink)}
 </div>
 </div>
 <div class="list" id="list"></div>
+<button class="more" id="more" type="button">Ver todos os relatórios</button>
 </div></section>
 
 <section id="laboratorio"><div class="wrap">
@@ -241,8 +251,10 @@ const EV=[
 {f:"major",u:"mundial-2026.html",t:"Mundial",n:"Mundial 2026",dt:"28 a 30 ago",hl:"O que realmente venceu o Mundial",ch:"Andrew Hedrick",dk:"Dragapult ex"}
 ];
 const L=document.getElementById('list'),E=s=>s.replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
-function draw(f){L.innerHTML=EV.filter(e=>f==='all'||e.f===f).map(e=>`<a class="row" href="${e.u}"><div class="d"><small>${E(e.t)}</small>${E(e.dt)} 2026</div><div><h3>${E(e.n)}${e.nw?'<span class="new">Novo</span>':''}</h3><span class="hl">${E(e.hl)}</span></div><div class="c"><b>${E(e.ch)}</b>${E(e.dk)}</div><span class="ar">→</span></a>`).join('')}
+let OPEN=false;const MB=document.getElementById('more');
+function draw(f){const A=EV.filter(e=>f==='all'||e.f===f),N=5,show=OPEN||A.length<=N+1?A:A.slice(0,N);MB.style.display=show.length<A.length?'':'none';MB.textContent='Ver todos os relatórios ('+A.length+')';MB.dataset.f=f;L.innerHTML=show.map(e=>`<a class="row" href="${e.u}"><div class="d"><small>${E(e.t)}</small>${E(e.dt)} 2026</div><div><h3>${E(e.n)}${e.nw?'<span class="new">Novo</span>':''}</h3><span class="hl">${E(e.hl)}</span></div><div class="c"><b>${E(e.ch)}</b>${E(e.dk)}</div><span class="ar">→</span></a>`).join('')}
 document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw(b.dataset.f)});
+MB.onclick=()=>{OPEN=true;draw(MB.dataset.f)};
 draw('all');
 </script>
 </body>
