@@ -5,6 +5,7 @@
   var GQ = 'https://www.galaxyquest.com.br/';
   var GQIG = 'https://www.instagram.com/galaxy.questtcg/';
   var REPORTS = [
+    { u: 'city-league-2027.html', n: 'City League Japão', t: 'Radar Ásia', d: '26 set a 10 nov 2026', c: 'O Japão já joga o que vem aí' },
     { u: 'laic-2026.html', n: 'LAIC 2026', t: 'Prévia', d: '20 a 22 nov 2026', c: 'Projeção do meta com Reinado Delta' },
     { u: 'gdansk-2026.html', n: 'Gdańsk', t: 'Regional', d: '31 out e 1 nov 2026', c: 'Aarni Karjala, Slowking' },
     { u: 'puebla-2026.html', n: 'Puebla', t: 'Regional', d: '24 e 25 out 2026', c: 'Andrew Hedrick, Dragapult ex' },
