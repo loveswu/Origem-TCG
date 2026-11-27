@@ -5,6 +5,7 @@
   var GQ = 'https://www.galaxyquest.com.br/';
   var GQIG = 'https://www.instagram.com/galaxy.questtcg/';
   var REPORTS = [
+    { u: 'cl-chiba-2027.html', n: 'CL Chiba', t: 'Champions League', d: '22 e 23 nov 2026', c: 'Hiromu Sasaki, Dragapult ex' },
     { u: 'laic-2027.html', n: 'LAIC 2027', t: 'International', d: '20 a 22 nov 2026', c: "Vinícius Fernandez, N's Zoroark" },
     { u: 'buenos-aires-2026.html', n: 'Buenos Aires', t: 'Special Event', d: '14 e 15 nov 2026', c: 'Calvin Connor, Dragapult ex' },
     { u: 'city-league-2027.html', n: 'City League Japão', t: 'Radar Ásia', d: '26 set a 10 nov 2026', c: 'O Japão já joga o que vem aí' },
